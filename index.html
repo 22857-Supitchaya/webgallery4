@@ -8,8 +8,16 @@
 
     <title>Sweet Fantasy | Dessert World</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Pacifico&display=swap');
+
+        /* =========================
+           GLOBAL
+        ========================= */
 
         * {
             margin: 0;
@@ -19,11 +27,12 @@
 
         :root {
             --pink: #ff8fc7;
-            --light-pink: #ffe5f2;
-            --purple: #b99aff;
-            --blue: #9eeaff;
-            --cream: #fff9f0;
+            --hot-pink: #ed55a5;
+            --purple: #ad8cff;
+            --blue: #88e8ff;
+            --cream: #fff8ed;
             --dark: #542b57;
+            --glass: rgba(255, 255, 255, 0.46);
         }
 
         html {
@@ -31,27 +40,89 @@
         }
 
         body {
-            font-family: 'Kanit', sans-serif;
-            background:
-                radial-gradient(circle at 10% 20%, #ffd7ed, transparent 30%),
-                radial-gradient(circle at 90% 10%, #dcd0ff, transparent 35%),
-                linear-gradient(135deg, #fff1fa, #e9e0ff, #dffaff);
+            font-family: "Kanit", sans-serif;
             color: var(--dark);
             overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(255, 169, 217, 0.8),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(188, 166, 255, 0.8),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(141, 232, 255, 0.65),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff0f9,
+                    #e9e0ff,
+                    #e1faff
+                );
+
+            background-size: 180% 180%;
+            animation: backgroundFlow 18s ease-in-out infinite alternate;
         }
 
-        /* LOADING SCREEN */
+        @keyframes backgroundFlow {
+
+            0% {
+                background-position: 0% 30%;
+            }
+
+            50% {
+                background-position: 100% 70%;
+            }
+
+            100% {
+                background-position: 20% 100%;
+            }
+
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::selection {
+            background: #f6a7d4;
+            color: white;
+        }
+
+
+        /* =========================
+           LOADING SCREEN
+        ========================= */
 
         #loader {
             position: fixed;
             inset: 0;
-            z-index: 9999;
-            background: linear-gradient(135deg, #ffb6dc, #bba4ff);
+            z-index: 10000;
+
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            transition: 1s;
+
+            background:
+                radial-gradient(circle, #ffd8ef, transparent 40%),
+                linear-gradient(135deg, #c2a5ff, #ff9dce);
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
         }
 
         #loader.hide {
@@ -59,36 +130,46 @@
             visibility: hidden;
         }
 
-        .loader-cake {
-            font-size: 80px;
-            animation: bounce 1s infinite alternate;
+        .loader-dessert {
+            font-size: 85px;
+            filter: drop-shadow(0 10px 20px #9d559966);
+            animation: loaderBounce 1s infinite alternate;
         }
 
         .loader-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 35px;
+            margin-top: 20px;
+
+            font-family: "Pacifico", cursive;
+            font-size: clamp(30px, 7vw, 55px);
             color: white;
-            text-shadow: 0 4px 12px #9c5a9c;
+
+            text-shadow:
+                0 0 10px #ffffffaa,
+                0 5px 15px #9b589966;
         }
 
-        .loader-text {
+        .loader-subtitle {
+            margin-top: 10px;
             color: white;
-            margin-top: 12px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-size: 12px;
+            text-align: center;
         }
 
-        .loader-bar {
-            width: 220px;
+        .loader-track {
+            width: 240px;
             height: 8px;
-            background: #ffffff66;
+            margin-top: 28px;
+
             border-radius: 50px;
-            margin-top: 25px;
+            background: #ffffff55;
             overflow: hidden;
         }
 
         .loader-progress {
             width: 0%;
             height: 100%;
+            border-radius: inherit;
             background: white;
             animation: loading 2.5s forwards;
         }
@@ -99,96 +180,182 @@
             }
         }
 
-        @keyframes bounce {
+        @keyframes loaderBounce {
             to {
                 transform: translateY(-25px) rotate(8deg);
             }
         }
 
-        /* FLOATING DECORATIONS */
 
-        .decorations span {
+        /* =========================
+           MAGIC BACKGROUND
+        ========================= */
+
+        .magic-background {
             position: fixed;
-            z-index: -1;
-            font-size: 28px;
-            animation: float 12s linear infinite;
-            opacity: .75;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
             pointer-events: none;
         }
 
-        .decorations span:nth-child(1) {
-            left: 5%;
-            top: 90%;
+        .magic-orb {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+            filter: blur(65px);
+            opacity: 0.42;
+
+            animation: orbMove 20s ease-in-out infinite alternate;
         }
 
-        .decorations span:nth-child(2) {
-            left: 20%;
-            top: 70%;
-            animation-delay: 2s;
+        .orb-one {
+            top: 5%;
+            left: -5%;
+            background: #ff8fc7;
         }
 
-        .decorations span:nth-child(3) {
-            left: 40%;
-            top: 95%;
+        .orb-two {
+            top: 40%;
+            right: -8%;
+            background: #9d8cff;
             animation-delay: 4s;
         }
 
-        .decorations span:nth-child(4) {
-            left: 65%;
-            top: 80%;
-            animation-delay: 1s;
+        .orb-three {
+            bottom: -10%;
+            left: 35%;
+            background: #7ce5ff;
+            animation-delay: 8s;
         }
 
-        .decorations span:nth-child(5) {
-            left: 85%;
-            top: 95%;
-            animation-delay: 5s;
-        }
+        @keyframes orbMove {
 
-        .decorations span:nth-child(6) {
-            left: 75%;
-            top: 60%;
-            animation-delay: 3s;
-        }
-
-        @keyframes float {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translate(0, 0) scale(1);
             }
 
             50% {
-                transform: translateY(-250px) rotate(180deg);
+                transform: translate(100px, -80px) scale(1.35);
             }
 
             100% {
-                transform: translateY(-800px) rotate(360deg);
+                transform: translate(-80px, 100px) scale(0.9);
             }
+
         }
 
-        /* NAVIGATION */
+        .floating-sweet {
+            position: fixed;
+            z-index: -1;
+
+            font-size: 30px;
+            opacity: 0.65;
+
+            pointer-events: none;
+            animation: sweetFloat linear infinite;
+        }
+
+        @keyframes sweetFloat {
+
+            0% {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: translateY(45vh) translateX(80px) rotate(180deg);
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-15vh) translateX(-80px) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           SPARKLES
+        ========================= */
+
+        .sparkle {
+            position: fixed;
+            z-index: -1;
+
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+
+            background: white;
+            box-shadow:
+                0 0 8px white,
+                0 0 20px #ffb7e4;
+
+            pointer-events: none;
+            animation: sparkleBlink ease-in-out infinite alternate;
+        }
+
+        @keyframes sparkleBlink {
+
+            from {
+                opacity: 0.15;
+                transform: scale(0.4);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.8);
+            }
+
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             position: fixed;
-            top: 20px;
+            top: 18px;
             left: 50%;
             transform: translateX(-50%);
-            width: min(92%, 1100px);
-            z-index: 1000;
-            padding: 15px 25px;
-            border: 1px solid #ffffffaa;
-            border-radius: 50px;
-            background: #ffffff80;
-            backdrop-filter: blur(18px);
-            box-shadow: 0 10px 40px #b875aa25;
+
+            width: min(94%, 1150px);
+            z-index: 2000;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+
+            padding: 15px 25px;
+
+            border: 1px solid #ffffffbb;
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.48);
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 10px 40px rgba(169, 102, 169, 0.18),
+                inset 0 1px 0 white;
         }
 
         .logo {
-            font-family: 'Pacifico', cursive;
-            color: #bd65a9;
-            font-size: 24px;
+            font-family: "Pacifico", cursive;
+            font-size: 23px;
+            color: #ad62a8;
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -199,125 +366,186 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            font-size: 14px;
             font-weight: 500;
-            transition: .3s;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ec65ae;
-            transform: translateY(-3px);
+            color: var(--hot-pink);
+            text-shadow: 0 0 10px #ff9ed366;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
+            padding: 150px 7% 90px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 130px 20px 80px;
-            position: relative;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 950px;
+            transition: transform 0.2s ease-out;
         }
 
-        .small-title {
+        .hero-label {
+            font-size: 14px;
             letter-spacing: 5px;
-            font-size: 15px;
-            color: #ad6baf;
-            animation: fadeUp 1s ease;
+            color: #ae70af;
         }
 
         .hero h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: clamp(48px, 9vw, 105px);
-            background: linear-gradient(90deg, #ed74b9, #9e80ef, #68cce8);
-            background-size: 200%;
+            margin: 20px 0;
+
+            font-family: "Pacifico", cursive;
+            font-size: clamp(48px, 10vw, 115px);
+            line-height: 1.25;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ee70b7,
+                    #a78bf2,
+                    #66cde8,
+                    #ee70b7
+                );
+
+            background-size: 300%;
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
-            animation: gradientMove 5s infinite alternate;
-            margin: 15px 0;
+
+            animation: rainbowText 8s linear infinite;
+
+            filter: drop-shadow(0 10px 15px #c27cb733);
         }
 
-        .hero h2 {
-            font-size: clamp(22px, 4vw, 40px);
-            font-weight: 600;
-            color: #754b7b;
-        }
+        @keyframes rainbowText {
 
-        .hero p {
-            max-width: 650px;
-            margin: 25px auto;
-            font-size: 17px;
-            line-height: 2;
-            color: #785b7c;
-        }
-
-        @keyframes gradientMove {
             from {
                 background-position: 0%;
             }
 
             to {
-                background-position: 100%;
+                background-position: 300%;
             }
+
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 42px);
+            color: #79507f;
+            font-weight: 600;
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-description {
+            max-width: 700px;
+            margin: 25px auto;
+
+            font-size: 17px;
+            line-height: 2;
+            color: #7d6382;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 35px;
         }
 
         .main-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
             padding: 15px 32px;
             border-radius: 50px;
+
             text-decoration: none;
             color: white;
-            font-weight: 600;
-            background: linear-gradient(90deg, #f48abd, #aa8df5);
-            box-shadow: 0 10px 25px #c47db655;
-            transition: .3s;
+            font-weight: 500;
+
+            background: linear-gradient(
+                100deg,
+                #f58abd,
+                #a98cf5
+            );
+
+            box-shadow:
+                0 10px 30px #bd7db655,
+                inset 0 1px 0 #ffffffaa;
+
+            transition: 0.35s;
         }
 
         .main-button:hover {
-            transform: translateY(-7px) scale(1.04);
-            box-shadow: 0 15px 35px #c47db677;
+            transform: translateY(-8px) scale(1.04);
+            box-shadow:
+                0 18px 45px #bd7db677,
+                0 0 25px #ffb6e866;
         }
 
-        /* SECTION */
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 30px;
+            border-radius: 50px;
+
+            text-decoration: none;
+            color: #9c6ca3;
+            font-weight: 500;
+
+            border: 1px solid white;
+            background: #ffffff66;
+            backdrop-filter: blur(10px);
+
+            transition: 0.35s;
+        }
+
+        .secondary-button:hover {
+            transform: translateY(-6px);
+            background: white;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
 
         section {
-            padding: 100px 7%;
+            padding: 110px 7%;
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
         }
 
         .section-heading span {
-            color: #c879b3;
+            font-size: 13px;
             letter-spacing: 4px;
-            font-size: 14px;
+            color: #b46eac;
         }
 
         .section-heading h2 {
-            font-family: 'Pacifico', cursive;
-            font-size: clamp(32px, 5vw, 55px);
-            color: #845d9a;
-            margin-top: 10px;
+            margin-top: 12px;
+
+            font-family: "Pacifico", cursive;
+            font-size: clamp(32px, 6vw, 60px);
+            color: #87639d;
         }
 
         .section-heading p {
@@ -325,179 +553,317 @@
             color: #866c8d;
         }
 
-        /* GALLERY */
+
+        /* =========================
+           DESSERT GALLERY
+        ========================= */
 
         .gallery {
             max-width: 1250px;
             margin: auto;
+
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 32px;
         }
 
         .dessert-card {
             position: relative;
             overflow: hidden;
-            border-radius: 30px;
-            background: #ffffffaa;
+
             border: 1px solid #ffffff;
-            box-shadow: 0 15px 45px #a979a52b;
-            backdrop-filter: blur(15px);
-            transition: .4s;
+            border-radius: 32px;
+
+            background: rgba(255, 255, 255, 0.48);
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 55px rgba(157, 103, 158, 0.2),
+                inset 0 1px 0 white;
+
+            transform-style: preserve-3d;
+            transition:
+                transform 0.15s ease-out,
+                box-shadow 0.3s ease;
+
+            will-change: transform;
+        }
+
+        .dessert-card::before {
+            content: "";
+
+            position: absolute;
+            inset: -100%;
+
+            background: linear-gradient(
+                120deg,
+                transparent 35%,
+                #ffffff88 50%,
+                transparent 65%
+            );
+
+            transform: rotate(20deg);
+            transition: 0.7s;
+            pointer-events: none;
+        }
+
+        .dessert-card:hover::before {
+            inset: 100%;
         }
 
         .dessert-card:hover {
-            transform: translateY(-15px) rotateX(3deg);
-            box-shadow: 0 25px 60px #b86eae55;
+            box-shadow:
+                0 30px 70px rgba(169, 104, 164, 0.4),
+                0 0 30px rgba(255, 178, 224, 0.25);
         }
 
         .dessert-image {
-            height: 260px;
+            height: 270px;
             overflow: hidden;
-            background: linear-gradient(135deg, #ffd7ec, #d8c9ff);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd5ec,
+                    #d5c7ff
+                );
         }
 
         .dessert-image img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
-            transition: .5s;
+            display: block;
+
+            transition: transform 0.7s ease;
         }
 
-        .dessert-card:hover img {
-            transform: scale(1.12) rotate(2deg);
+        .dessert-card:hover .dessert-image img {
+            transform: scale(1.13) rotate(2deg);
         }
 
         .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 25px;
-            color: #9c5b9d;
-        }
-
-        .card-content p {
-            font-size: 15px;
-            line-height: 1.9;
-            margin: 12px 0;
-            color: #806583;
+            padding: 28px;
         }
 
         .tag {
             display: inline-block;
-            padding: 5px 14px;
+
+            padding: 5px 13px;
             border-radius: 50px;
+
+            color: #b05d9c;
             background: #ffe0f0;
-            color: #bd659b;
-            font-size: 12px;
+
+            font-size: 11px;
+            letter-spacing: 1px;
         }
 
-        /* TIMELINE */
+        .card-content h3 {
+            margin-top: 14px;
+            font-size: 25px;
+            color: #965e9e;
+        }
+
+        .card-content p {
+            margin-top: 10px;
+
+            font-size: 15px;
+            line-height: 1.9;
+            color: #806583;
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: 20px;
+            color: #bd7bb0;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           TIMELINE
+        ========================= */
 
         .timeline {
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
             position: relative;
         }
 
         .timeline::before {
             content: "";
+
             position: absolute;
-            left: 25px;
+            left: 27px;
             top: 0;
             bottom: 0;
+
             width: 4px;
-            background: linear-gradient(#f3a2d0, #b9a0f7, #92dff0);
-            border-radius: 10px;
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    #f5a2d1,
+                    #bba1f7,
+                    #8bdff3
+                );
+
+            box-shadow: 0 0 18px #d69acb66;
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 80px;
-            margin-bottom: 40px;
+            padding-left: 85px;
+            margin-bottom: 42px;
         }
 
         .timeline-icon {
             position: absolute;
             left: 0;
-            width: 54px;
-            height: 54px;
+
+            width: 58px;
+            height: 58px;
+
             display: grid;
             place-items: center;
+
+            border: 4px solid #f4b1d8;
             border-radius: 50%;
+
             background: white;
-            border: 4px solid #f1b2d7;
-            font-size: 23px;
-            box-shadow: 0 5px 20px #b57da633;
+            font-size: 25px;
+
+            box-shadow:
+                0 5px 25px #c48bb044,
+                0 0 15px #ffffffaa;
         }
 
         .timeline-box {
-            padding: 25px;
-            border-radius: 25px;
-            background: #ffffffaa;
+            padding: 27px;
+            border-radius: 28px;
+
             border: 1px solid white;
-            box-shadow: 0 10px 30px #b57da622;
-            transition: .3s;
+            background: #ffffff80;
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 15px 35px #b77fa522;
+            transition: 0.35s;
         }
 
         .timeline-box:hover {
-            transform: translateX(10px);
+            transform: translateX(12px);
+            box-shadow: 0 20px 45px #b77fa544;
         }
 
         .timeline-box h3 {
-            color: #9a6bb0;
             font-size: 23px;
+            color: #9869ae;
         }
 
         .timeline-box p {
-            margin-top: 8px;
+            margin-top: 10px;
             line-height: 1.9;
             color: #806583;
         }
 
-        /* QUOTE */
+
+        /* =========================
+           QUOTE
+        ========================= */
 
         .quote-box {
-            max-width: 1000px;
-            margin: 40px auto 0;
-            padding: 60px 30px;
+            position: relative;
+            overflow: hidden;
+
+            max-width: 1050px;
+            margin: auto;
+
+            padding: 75px 30px;
             text-align: center;
-            border-radius: 40px;
+
+            border: 2px solid white;
+            border-radius: 45px;
+
             background:
-                linear-gradient(135deg, #ffffffaa, #ffe5f399);
-            border: 2px solid #ffffff;
-            box-shadow: 0 20px 60px #b77ca633;
+                linear-gradient(
+                    135deg,
+                    #ffffffaa,
+                    #ffe4f499
+                );
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px #b77ca633,
+                inset 0 1px 0 white;
         }
 
-        .quote-box .quote-icon {
-            font-size: 50px;
+        .quote-box::before {
+            content: "✦";
+
+            position: absolute;
+            top: 20px;
+            left: 30px;
+
+            font-size: 35px;
+            color: #ffffff;
+            animation: sparkleBlink 1.5s infinite alternate;
+        }
+
+        .quote-box::after {
+            content: "✧";
+
+            position: absolute;
+            bottom: 20px;
+            right: 35px;
+
+            font-size: 45px;
+            color: #ffffff;
+            animation: sparkleBlink 2s infinite alternate;
+        }
+
+        .quote-icon {
+            font-size: 55px;
         }
 
         .quote-box h3 {
-            font-family: 'Pacifico', cursive;
-            font-size: clamp(24px, 4vw, 40px);
-            color: #ad70a8;
             margin: 20px 0;
+
+            font-family: "Pacifico", cursive;
+            font-size: clamp(25px, 5vw, 45px);
+            color: #ad70a8;
         }
 
         .quote-box p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 2;
             color: #826982;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
+            padding: 65px 20px;
             text-align: center;
-            padding: 55px 20px;
-            background: #ffffff70;
+
             border-top: 1px solid white;
+            background: #ffffff70;
+            backdrop-filter: blur(15px);
         }
 
         footer h2 {
-            font-family: 'Pacifico', cursive;
+            font-family: "Pacifico", cursive;
+            font-size: 34px;
             color: #a66eaa;
-            font-size: 30px;
         }
 
         footer p {
@@ -511,48 +877,128 @@
             letter-spacing: 2px;
         }
 
-        /* CLICK PARTICLES */
+
+        /* =========================
+           CLICK PARTICLES
+        ========================= */
 
         .click-particle {
             position: fixed;
+            z-index: 9999;
+
             pointer-events: none;
             font-size: 22px;
-            animation: particle 1s forwards;
-            z-index: 9998;
+
+            animation: particleExplosion 1s ease-out forwards;
         }
 
-        @keyframes particle {
+        @keyframes particleExplosion {
+
             0% {
                 opacity: 1;
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) scale(0.5) rotate(0deg);
             }
 
             100% {
                 opacity: 0;
-                transform: translate(var(--x), var(--y)) scale(1.8) rotate(180deg);
+                transform:
+                    translate(var(--move-x), var(--move-y))
+                    scale(1.7)
+                    rotate(240deg);
             }
+
         }
 
-        /* RESPONSIVE */
 
-        @media (max-width: 850px) {
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(70px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           SCROLL TOP BUTTON
+        ========================= */
+
+        #topButton {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 1500;
+
+            width: 52px;
+            height: 52px;
+
+            border: 1px solid white;
+            border-radius: 50%;
+
+            background: #ffffffaa;
+            backdrop-filter: blur(15px);
+
+            color: #a66aa4;
+            font-size: 22px;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+
+            transition: 0.3s;
+        }
+
+        #topButton.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #topButton:hover {
+            transform: translateY(-7px);
+            background: white;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
             .gallery {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .nav-links {
-                gap: 12px;
-                font-size: 13px;
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+        }
+
+        @media (max-width: 620px) {
+
+            nav {
+                padding: 12px 18px;
             }
 
             .logo {
                 font-size: 19px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                padding: 12px 18px;
             }
 
             .nav-links {
@@ -564,259 +1010,490 @@
             }
 
             section {
-                padding: 75px 5%;
+                padding: 80px 5%;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero-description {
+                font-size: 15px;
             }
 
             .timeline-item {
-                padding-left: 65px;
+                padding-left: 70px;
             }
+
+            .timeline::before {
+                left: 23px;
+            }
+
+            .timeline-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 21px;
+            }
+
+            .timeline-box {
+                padding: 22px;
+            }
+
+            .timeline-box h3 {
+                font-size: 19px;
+            }
+
         }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- LOADING -->
+
+    <!-- =========================
+         LOADING SCREEN
+    ========================= -->
 
     <div id="loader">
-        <div class="loader-cake">🍰</div>
-        <div class="loader-title">Sweet Fantasy</div>
-        <div class="loader-text">ENTERING DESSERT WORLD...</div>
 
-        <div class="loader-bar">
+        <div class="loader-dessert">
+            🍰
+        </div>
+
+        <div class="loader-title">
+            Sweet Fantasy
+        </div>
+
+        <div class="loader-subtitle">
+            ENTERING THE MAGICAL DESSERT WORLD...
+        </div>
+
+        <div class="loader-track">
             <div class="loader-progress"></div>
         </div>
+
     </div>
 
-    <!-- FLOATING DECORATIONS -->
 
-    <div class="decorations">
-        <span>🍓</span>
-        <span>🍭</span>
-        <span>🧁</span>
-        <span>🍬</span>
-        <span>🍰</span>
-        <span>✨</span>
+    <!-- =========================
+         MAGIC BACKGROUND
+    ========================= -->
+
+    <div class="magic-background">
+
+        <div class="magic-orb orb-one"></div>
+        <div class="magic-orb orb-two"></div>
+        <div class="magic-orb orb-three"></div>
+
     </div>
 
-    <!-- NAVIGATION -->
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
     <nav>
-        <div class="logo">🍰 Sweet Fantasy</div>
+
+        <div class="logo">
+            🍰 Sweet Fantasy
+        </div>
 
         <ul class="nav-links">
-            <li><a href="#home">หน้าแรก</a></li>
-            <li><a href="#gallery">แกลเลอรี</a></li>
-            <li><a href="#story">เรื่องราว</a></li>
-            <li><a href="#quote">แรงบันดาลใจ</a></li>
+
+            <li>
+                <a href="#home">หน้าแรก</a>
+            </li>
+
+            <li>
+                <a href="#gallery">แกลเลอรี</a>
+            </li>
+
+            <li>
+                <a href="#story">เรื่องราว</a>
+            </li>
+
+            <li>
+                <a href="#quote">แรงบันดาลใจ</a>
+            </li>
+
         </ul>
+
     </nav>
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <header class="hero" id="home">
 
         <div class="hero-content">
 
-            <div class="small-title">
+            <div class="hero-label">
                 ✦ WELCOME TO THE SWEETEST WORLD ✦
             </div>
 
-            <h1>Sweet Fantasy</h1>
+            <h1>
+                Sweet Fantasy
+            </h1>
 
-            <h2>โลกแห่งขนมหวานและจินตนาการ</h2>
+            <h2>
+                โลกแห่งขนมหวานและจินตนาการ
+            </h2>
 
-            <p>
+            <p class="hero-description">
+
                 ยินดีต้อนรับเข้าสู่โลกแห่งขนมหวาน
-                ที่เต็มไปด้วยสีสัน ความน่ารัก และเรื่องราวแสนมหัศจรรย์
+                ที่เต็มไปด้วยสีสัน ความน่ารัก
+                และเรื่องราวแสนมหัศจรรย์
+
                 ทุกชิ้นขนมเปรียบเสมือนความทรงจำ
-                และทุกความหวานคือแรงบันดาลใจเล็ก ๆ ในชีวิต
+                และทุกความหวานคือแรงบันดาลใจเล็ก ๆ
+                ในชีวิตประจำวัน
+
             </p>
 
-            <a href="#gallery" class="main-button">
-                ✦ เปิดประตูสู่แกลเลอรี ✦
-            </a>
+            <div class="hero-buttons">
+
+                <a href="#gallery" class="main-button">
+                    ✦ เปิดประตูสู่แกลเลอรี ✦
+                </a>
+
+                <a href="#story" class="secondary-button">
+                    🍭 สำรวจเรื่องราว
+                </a>
+
+            </div>
 
         </div>
 
     </header>
 
-    <!-- GALLERY -->
+
+    <!-- =========================
+         GALLERY
+    ========================= -->
 
     <section id="gallery">
 
-        <div class="section-heading">
-            <span>✧ SWEET COLLECTION ✧</span>
-            <h2>My Dessert Gallery</h2>
-            <p>รวมภาพขนมหวานจากโลกแห่งจินตนาการ</p>
+        <div class="section-heading reveal">
+
+            <span>
+                ✧ SWEET COLLECTION ✧
+            </span>
+
+            <h2>
+                My Dessert Gallery
+            </h2>
+
+            <p>
+                รวมเรื่องราวจากโลกแห่งขนมหวาน
+            </p>
+
         </div>
+
 
         <div class="gallery">
 
-            <article class="dessert-card">
+
+            <article class="dessert-card reveal">
 
                 <div class="dessert-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcTYQ0JK1E2Kco34ND9uMKlLjxTmya-QATPvPHj8kEfMTQ&s=10"
-                        alt="Sweet Dessert">
+
+                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+                        alt="Strawberry Cake"
+                    >
+
                 </div>
 
                 <div class="card-content">
-                    <span class="tag">THE SWEET BEGINNING</span>
-                    <h3>Strawberry Dream</h3>
+
+                    <span class="tag">
+                        THE SWEET BEGINNING
+                    </span>
+
+                    <h3>
+                        Strawberry Dream
+                    </h3>
 
                     <p>
-                        ความฝันสีชมพูที่เต็มไปด้วยกลิ่นหอมของสตรอว์เบอร์รี
+                        ความฝันสีชมพูที่เต็มไปด้วยกลิ่นหอม
+                        ของสตรอว์เบอร์รี
                         และความหวานที่ทำให้ทุกวันสดใส
                     </p>
+
+                    <div class="card-bottom">
+                        <span>🍓 Sweet Memory</span>
+                        <span>✧ 01</span>
+                    </div>
+
                 </div>
 
             </article>
 
-            <article class="dessert-card">
+
+            <article class="dessert-card reveal">
 
                 <div class="dessert-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcTB2LDrC0tpvYwP2F12CIMpZA9yhdQUQXBuYRsR-Y8glw&s=10"
-                        alt="Candy Fantasy">
+
+                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=85"
+                        alt="Colorful Candy"
+                    >
+
                 </div>
 
                 <div class="card-content">
-                    <span class="tag">CANDY KINGDOM</span>
-                    <h3>Candy Wonderland</h3>
+
+                    <span class="tag">
+                        CANDY KINGDOM
+                    </span>
+
+                    <h3>
+                        Candy Wonderland
+                    </h3>
 
                     <p>
                         ดินแดนลูกกวาดหลากสีสัน
-                        ที่ทุกเส้นทางเต็มไปด้วยความสนุกและความมหัศจรรย์
+                        ที่ทุกเส้นทางเต็มไปด้วยความสนุก
+                        และความมหัศจรรย์
                     </p>
+
+                    <div class="card-bottom">
+                        <span>🍭 Candy Adventure</span>
+                        <span>✧ 02</span>
+                    </div>
+
                 </div>
 
             </article>
 
-            <article class="dessert-card">
+
+            <article class="dessert-card reveal">
 
                 <div class="dessert-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcReAqWR1xE6xUrRBRTMEEN4vFM9bj4Sott5WGxiL6LjIw&s=10"
-                        alt="Fantasy Cake">
+
+                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
+                        alt="Sweet Dessert"
+                    >
+
                 </div>
 
                 <div class="card-content">
-                    <span class="tag">THE SWEET DREAM</span>
-                    <h3>Magical Cake</h3>
+
+                    <span class="tag">
+                        THE SWEET DREAM
+                    </span>
+
+                    <h3>
+                        Magical Dessert
+                    </h3>
 
                     <p>
-                        เค้กแห่งความฝันที่ซ่อนเรื่องราวลึกลับ
-                        และความสุขไว้ในทุกชั้นของขนม
+                        ขนมหวานแห่งความฝัน
+                        ที่ซ่อนเรื่องราวสุดพิเศษ
+                        ไว้ในทุกชั้นของจินตนาการ
                     </p>
+
+                    <div class="card-bottom">
+                        <span>🧁 Magic Creation</span>
+                        <span>✧ 03</span>
+                    </div>
+
                 </div>
 
             </article>
+
 
         </div>
 
     </section>
 
-    <!-- STORY TIMELINE -->
+
+    <!-- =========================
+         STORY TIMELINE
+    ========================= -->
 
     <section id="story">
 
-        <div class="section-heading">
-            <span>✧ OUR SWEET JOURNEY ✧</span>
-            <h2>Dessert Story</h2>
-            <p>เส้นทางการเดินทางในโลกแห่งขนมหวาน</p>
+        <div class="section-heading reveal">
+
+            <span>
+                ✧ OUR SWEET JOURNEY ✧
+            </span>
+
+            <h2>
+                Dessert Story
+            </h2>
+
+            <p>
+                เส้นทางการเดินทางในโลกแห่งขนมหวาน
+            </p>
+
         </div>
+
 
         <div class="timeline">
 
-            <div class="timeline-item">
 
-                <div class="timeline-icon">🍓</div>
+            <div class="timeline-item reveal">
+
+                <div class="timeline-icon">
+                    🍓
+                </div>
 
                 <div class="timeline-box">
-                    <h3>CHAPTER 01 — The First Sweetness</h3>
+
+                    <h3>
+                        CHAPTER 01 — The First Sweetness
+                    </h3>
 
                     <p>
                         จุดเริ่มต้นของความหลงใหลในขนมหวาน
-                        จากขนมชิ้นเล็ก ๆ สู่โลกแห่งจินตนาการ
+                        จากขนมชิ้นเล็ก ๆ
+                        สู่โลกแห่งจินตนาการ
                     </p>
+
                 </div>
 
             </div>
 
-            <div class="timeline-item">
 
-                <div class="timeline-icon">🍭</div>
+            <div class="timeline-item reveal">
+
+                <div class="timeline-icon">
+                    🍭
+                </div>
 
                 <div class="timeline-box">
-                    <h3>CHAPTER 02 — Candy Adventure</h3>
+
+                    <h3>
+                        CHAPTER 02 — Candy Adventure
+                    </h3>
 
                     <p>
                         การผจญภัยในดินแดนลูกกวาด
                         ที่เต็มไปด้วยสีสัน ความสนุก
                         และสิ่งใหม่ ๆ ให้ค้นพบ
                     </p>
+
                 </div>
 
             </div>
 
-            <div class="timeline-item">
 
-                <div class="timeline-icon">🧁</div>
+            <div class="timeline-item reveal">
+
+                <div class="timeline-icon">
+                    🧁
+                </div>
 
                 <div class="timeline-box">
-                    <h3>CHAPTER 03 — The Sweet Creation</h3>
+
+                    <h3>
+                        CHAPTER 03 — The Sweet Creation
+                    </h3>
 
                     <p>
                         การสร้างสรรค์ขนมหวานในแบบของตัวเอง
                         ผสมผสานความคิดสร้างสรรค์
                         และจินตนาการเข้าด้วยกัน
                     </p>
+
                 </div>
 
             </div>
 
-            <div class="timeline-item">
 
-                <div class="timeline-icon">✨</div>
+            <div class="timeline-item reveal">
+
+                <div class="timeline-icon">
+                    ✨
+                </div>
 
                 <div class="timeline-box">
-                    <h3>CHAPTER 04 — The Endless Dream</h3>
+
+                    <h3>
+                        CHAPTER 04 — The Endless Dream
+                    </h3>
 
                     <p>
                         เพราะความฝันไม่มีจุดสิ้นสุด
-                        ทุกจินตนาการสามารถกลายเป็นเรื่องราวที่แสนพิเศษได้
+                        ทุกจินตนาการสามารถกลายเป็น
+                        เรื่องราวที่แสนพิเศษได้
                     </p>
+
                 </div>
 
             </div>
+
 
         </div>
 
     </section>
 
-    <!-- QUOTE -->
+
+    <!-- =========================
+         QUOTE
+    ========================= -->
 
     <section id="quote">
 
-        <div class="quote-box">
+        <div class="quote-box reveal">
 
-            <div class="quote-icon">🍰✨</div>
+            <div class="quote-icon">
+                🍰✨
+            </div>
 
-            <h3>Every Sweet Dream Needs a Creator</h3>
+            <h3>
+                Every Sweet Dream Needs a Creator
+            </h3>
 
             <p>
                 ทุกความฝันที่แสนหวาน
                 เริ่มต้นจากจินตนาการเล็ก ๆ
-                และสามารถกลายเป็นผลงานที่ยิ่งใหญ่ได้ในอนาคต
+                และสามารถกลายเป็นผลงานที่ยิ่งใหญ่
+                ได้ในอนาคต
             </p>
 
         </div>
 
     </section>
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
-        <h2>Sweet Fantasy</h2>
+        <h2>
+            Sweet Fantasy
+        </h2>
 
         <p>
             A magical world filled with sweetness and imagination.
@@ -832,55 +1509,259 @@
 
     </footer>
 
-    <!-- JAVASCRIPT -->
+
+    <!-- =========================
+         SCROLL TOP
+    ========================= -->
+
+    <button id="topButton" aria-label="กลับด้านบน">
+        ↑
+    </button>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
 
-        // LOADING SCREEN
+
+        /* =========================
+           LOADING
+        ========================= */
 
         window.addEventListener("load", () => {
 
             setTimeout(() => {
 
-                document.getElementById("loader").classList.add("hide");
+                document
+                    .getElementById("loader")
+                    .classList
+                    .add("hide");
 
             }, 2700);
 
         });
 
 
-        // CLICK PARTICLES
+        /* =========================
+           FLOATING SWEETS
+        ========================= */
+
+        const sweetIcons = [
+            "🍓",
+            "🍰",
+            "🍭",
+            "🧁",
+            "🍬",
+            "🍩",
+            "🍪",
+            "🍫",
+            "✨",
+            "💗",
+            "⭐",
+            "🍒"
+        ];
+
+        function createFloatingSweets() {
+
+            for (let i = 0; i < 22; i++) {
+
+                const sweet = document.createElement("span");
+
+                sweet.className = "floating-sweet";
+
+                sweet.textContent =
+                    sweetIcons[
+                        Math.floor(
+                            Math.random() * sweetIcons.length
+                        )
+                    ];
+
+                sweet.style.left =
+                    Math.random() * 100 + "%";
+
+                sweet.style.fontSize =
+                    18 + Math.random() * 25 + "px";
+
+                sweet.style.animationDuration =
+                    15 + Math.random() * 22 + "s";
+
+                sweet.style.animationDelay =
+                    Math.random() * 18 + "s";
+
+                document
+                    .querySelector(".magic-background")
+                    .appendChild(sweet);
+
+            }
+
+        }
+
+        createFloatingSweets();
+
+
+        /* =========================
+           RANDOM SPARKLES
+        ========================= */
+
+        function createSparkles() {
+
+            for (let i = 0; i < 55; i++) {
+
+                const sparkle = document.createElement("span");
+
+                sparkle.className = "sparkle";
+
+                sparkle.style.left =
+                    Math.random() * 100 + "%";
+
+                sparkle.style.top =
+                    Math.random() * 100 + "%";
+
+                sparkle.style.animationDuration =
+                    1 + Math.random() * 3 + "s";
+
+                sparkle.style.animationDelay =
+                    Math.random() * 4 + "s";
+
+                document
+                    .querySelector(".magic-background")
+                    .appendChild(sparkle);
+
+            }
+
+        }
+
+        createSparkles();
+
+
+        /* =========================
+           HERO MOUSE PARALLAX
+        ========================= */
+
+        const heroContent =
+            document.querySelector(".hero-content");
+
+        document.addEventListener("mousemove", (event) => {
+
+            const mouseX =
+                event.clientX / window.innerWidth - 0.5;
+
+            const mouseY =
+                event.clientY / window.innerHeight - 0.5;
+
+            heroContent.style.transform =
+                `translate(${mouseX * 14}px, ${mouseY * 14}px)`;
+
+        });
+
+
+        /* =========================
+           3D CARD TILT
+        ========================= */
+
+        const cards =
+            document.querySelectorAll(".dessert-card");
+
+        cards.forEach((card) => {
+
+            card.addEventListener("mousemove", (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const rotateX =
+                    ((y / rect.height) - 0.5) * -14;
+
+                const rotateY =
+                    ((x / rect.width) - 0.5) * 14;
+
+                card.style.transform =
+                    `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale3d(1.03, 1.03, 1.03)
+                    `;
+
+            });
+
+            card.addEventListener("mouseleave", () => {
+
+                card.style.transform =
+                    `
+                    perspective(1000px)
+                    rotateX(0deg)
+                    rotateY(0deg)
+                    scale3d(1, 1, 1)
+                    `;
+
+            });
+
+        });
+
+
+        /* =========================
+           CLICK PARTICLE EFFECT
+        ========================= */
 
         document.addEventListener("click", (event) => {
 
-            const sweets = ["🍓", "🍬", "🍭", "🧁", "✨", "💗", "⭐"];
+            const particles = [
+                "🍓",
+                "🍭",
+                "🧁",
+                "🍬",
+                "✨",
+                "💗",
+                "⭐",
+                "🍰"
+            ];
 
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 12; i++) {
 
-                const particle = document.createElement("span");
+                const particle =
+                    document.createElement("span");
 
-                particle.className = "click-particle";
+                particle.className =
+                    "click-particle";
 
                 particle.textContent =
-                    sweets[Math.floor(Math.random() * sweets.length)];
+                    particles[
+                        Math.floor(
+                            Math.random() * particles.length
+                        )
+                    ];
 
-                particle.style.left = event.clientX + "px";
-                particle.style.top = event.clientY + "px";
+                particle.style.left =
+                    event.clientX + "px";
+
+                particle.style.top =
+                    event.clientY + "px";
 
                 particle.style.setProperty(
-                    "--x",
-                    (Math.random() * 180 - 90) + "px"
+                    "--move-x",
+                    Math.random() * 240 - 120 + "px"
                 );
 
                 particle.style.setProperty(
-                    "--y",
-                    (Math.random() * 180 - 90) + "px"
+                    "--move-y",
+                    Math.random() * 240 - 120 + "px"
                 );
 
                 document.body.appendChild(particle);
 
                 setTimeout(() => {
+
                     particle.remove();
+
                 }, 1000);
 
             }
@@ -888,83 +1769,77 @@
         });
 
 
-        // MOUSE PARALLAX EFFECT
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
 
-        document.addEventListener("mousemove", (event) => {
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-            const x = (event.clientX / window.innerWidth - 0.5) * 10;
-            const y = (event.clientY / window.innerHeight - 0.5) * 10;
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
 
-            document.querySelector(".hero-content").style.transform =
-                `translate(${x}px, ${y}px)`;
+                    entries.forEach((entry) => {
 
-        });
+                        if (entry.isIntersecting) {
 
+                            entry.target.classList.add("show");
 
-        // CARD TILT EFFECT
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
-        const cards = document.querySelectorAll(".dessert-card");
+                        }
 
-        cards.forEach(card => {
+                    });
 
-            card.addEventListener("mousemove", (event) => {
-
-                const rect = card.getBoundingClientRect();
-
-                const x = event.clientX - rect.left;
-                const y = event.clientY - rect.top;
-
-                const rotateX = (y / rect.height - 0.5) * -8;
-                const rotateY = (x / rect.width - 0.5) * 8;
-
-                card.style.transform =
-                    `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-
-            });
-
-            card.addEventListener("mouseleave", () => {
-
-                card.style.transform = "";
-
-            });
-
-        });
-
-
-        // SCROLL REVEAL
-
-        const revealElements = document.querySelectorAll(
-            ".dessert-card, .timeline-item, .quote-box"
-        );
-
-        const observer = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.animation =
-                        "fadeUp 1s ease forwards";
-
-                    observer.unobserve(entry.target);
-
+                },
+                {
+                    threshold: 0.15
                 }
+            );
 
+        revealElements.forEach((element) => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =========================
+           SCROLL TOP BUTTON
+        ========================= */
+
+        const topButton =
+            document.getElementById("topButton");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                topButton.classList.add("show");
+
+            } else {
+
+                topButton.classList.remove("show");
+
+            }
+
+        });
+
+        topButton.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
 
-        }, {
-            threshold: 0.15
         });
 
-        revealElements.forEach(element => {
-
-            element.style.opacity = "0";
-
-            observer.observe(element);
-
-        });
 
     </script>
+
 
 </body>
 
