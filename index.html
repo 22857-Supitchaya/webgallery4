@@ -1,23 +1,158 @@
-
+```html
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sweet Fantasy | Dessert World</title>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Kim Dokja | Sweet Fantasy Story</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
 
-        /* =========================
-           GLOBAL
-        ========================= */
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+
+            --bg-a: #fff1f8;
+            --bg-b: #f0e4ff;
+            --bg-c: #def9ff;
+
+            --accent-1: #ff79bf;
+            --accent-2: #a98cff;
+            --accent-3: #6fdff4;
+
+            --accent-soft: rgba(255, 130, 194, 0.24);
+
+            --text-main: #57385b;
+            --text-soft: #7d637f;
+
+            --glass: rgba(255,255,255,.44);
+            --glass-strong: rgba(255,255,255,.65);
+
+            --line: rgba(255,255,255,.90);
+
+            --shadow:
+                0 25px 75px rgba(120,78,135,.18);
+
+            --glow:
+                0 0 25px rgba(255,175,220,.40),
+                0 0 55px rgba(175,150,255,.20);
+
+            --hero-gradient:
+                linear-gradient(
+                    90deg,
+                    #ff6db7,
+                    #a78cf4,
+                    #69d8ee,
+                    #ff6db7
+                );
+
+        }
+
+
+        /* =========================================================
+           CHOCOLATE THEME
+        ========================================================= */
+
+        body.theme-chocolate {
+
+            --bg-a: #321b1a;
+            --bg-b: #593129;
+            --bg-c: #80503b;
+
+            --accent-1: #df795d;
+            --accent-2: #bd8f64;
+            --accent-3: #f0b37c;
+
+            --accent-soft: rgba(224,125,89,.24);
+
+            --text-main: #ffe5d2;
+            --text-soft: #e5c0a7;
+
+            --glass: rgba(255,227,207,.12);
+            --glass-strong: rgba(255,232,211,.19);
+
+            --line: rgba(255,222,199,.36);
+
+            --shadow:
+                0 25px 75px rgba(15,5,4,.48);
+
+            --glow:
+                0 0 25px rgba(240,158,111,.25),
+                0 0 55px rgba(106,61,42,.42);
+
+            --hero-gradient:
+                linear-gradient(
+                    90deg,
+                    #f29f79,
+                    #d27d5c,
+                    #edc79a,
+                    #f29f79
+                );
+
+        }
+
+
+        /* =========================================================
+           FRUIT THEME
+        ========================================================= */
+
+        body.theme-fruit {
+
+            --bg-a: #fffbd8;
+            --bg-b: #dfffe3;
+            --bg-c: #dff6ff;
+
+            --accent-1: #ff6d6d;
+            --accent-2: #ffad3f;
+            --accent-3: #61d499;
+
+            --accent-soft: rgba(255,145,75,.21);
+
+            --text-main: #355c4a;
+            --text-soft: #648173;
+
+            --glass: rgba(255,255,255,.50);
+            --glass-strong: rgba(255,255,255,.68);
+
+            --line: rgba(255,255,255,.88);
+
+            --shadow:
+                0 25px 75px rgba(68,120,82,.17);
+
+            --glow:
+                0 0 25px rgba(255,160,92,.28),
+                0 0 55px rgba(92,218,145,.22);
+
+            --hero-gradient:
+                linear-gradient(
+                    90deg,
+                    #ff6d6d,
+                    #ffae42,
+                    #67c990,
+                    #ff6d6d
+                );
+
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
@@ -25,65 +160,94 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --pink: #ff8fc7;
-            --hot-pink: #ed55a5;
-            --purple: #ad8cff;
-            --blue: #88e8ff;
-            --cream: #fff8ed;
-            --dark: #542b57;
-            --glass: rgba(255, 255, 255, 0.46);
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
+
+            min-height: 100vh;
+
             font-family: "Kanit", sans-serif;
-            color: var(--dark);
+
+            color: var(--text-main);
+
             overflow-x: hidden;
 
             background:
                 radial-gradient(
-                    circle at 10% 20%,
-                    rgba(255, 169, 217, 0.8),
+                    circle at 10% 15%,
+                    var(--accent-soft),
                     transparent 30%
                 ),
                 radial-gradient(
-                    circle at 90% 15%,
-                    rgba(188, 166, 255, 0.8),
-                    transparent 35%
+                    circle at 90% 12%,
+                    rgba(158,137,255,.17),
+                    transparent 32%
                 ),
                 radial-gradient(
                     circle at 50% 100%,
-                    rgba(141, 232, 255, 0.65),
+                    rgba(110,222,245,.18),
                     transparent 35%
                 ),
                 linear-gradient(
                     135deg,
-                    #fff0f9,
-                    #e9e0ff,
-                    #e1faff
+                    var(--bg-a),
+                    var(--bg-b),
+                    var(--bg-c)
                 );
 
             background-size: 180% 180%;
-            animation: backgroundFlow 18s ease-in-out infinite alternate;
+
+            animation:
+                backgroundDrift 16s ease-in-out infinite alternate;
+
+            transition:
+                background .8s ease,
+                color .6s ease;
         }
 
-        @keyframes backgroundFlow {
+        body.theme-chocolate {
 
-            0% {
-                background-position: 0% 30%;
-            }
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(224,125,89,.20),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 18%,
+                    rgba(138,85,60,.25),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--bg-a),
+                    var(--bg-b),
+                    var(--bg-c)
+                );
 
-            50% {
-                background-position: 100% 70%;
-            }
+        }
 
-            100% {
-                background-position: 20% 100%;
-            }
+        body.theme-fruit {
+
+            background:
+                radial-gradient(
+                    circle at 10% 16%,
+                    rgba(255,110,99,.19),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 14%,
+                    rgba(90,213,139,.22),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--bg-a),
+                    var(--bg-b),
+                    var(--bg-c)
+                );
 
         }
 
@@ -91,969 +255,3778 @@
             color: inherit;
         }
 
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
+        button {
+            font-family: inherit;
         }
 
         ::selection {
-            background: #f6a7d4;
+            background: var(--accent-1);
             color: white;
         }
 
 
-        /* =========================
-           LOADING SCREEN
-        ========================= */
-
-        #loader {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            background:
-                radial-gradient(circle, #ffd8ef, transparent 40%),
-                linear-gradient(135deg, #c2a5ff, #ff9dce);
-
-            transition:
-                opacity 1s ease,
-                visibility 1s ease;
-        }
-
-        #loader.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-dessert {
-            font-size: 85px;
-            filter: drop-shadow(0 10px 20px #9d559966);
-            animation: loaderBounce 1s infinite alternate;
-        }
-
-        .loader-title {
-            margin-top: 20px;
-
-            font-family: "Pacifico", cursive;
-            font-size: clamp(30px, 7vw, 55px);
-            color: white;
-
-            text-shadow:
-                0 0 10px #ffffffaa,
-                0 5px 15px #9b589966;
-        }
-
-        .loader-subtitle {
-            margin-top: 10px;
-            color: white;
-            letter-spacing: 4px;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        .loader-track {
-            width: 240px;
-            height: 8px;
-            margin-top: 28px;
-
-            border-radius: 50px;
-            background: #ffffff55;
-            overflow: hidden;
-        }
-
-        .loader-progress {
-            width: 0%;
-            height: 100%;
-            border-radius: inherit;
-            background: white;
-            animation: loading 2.5s forwards;
-        }
-
-        @keyframes loading {
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes loaderBounce {
-            to {
-                transform: translateY(-25px) rotate(8deg);
-            }
-        }
-
-
-        /* =========================
-           MAGIC BACKGROUND
-        ========================= */
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
 
         .magic-background {
+
             position: fixed;
+
             inset: 0;
-            z-index: -2;
+
+            z-index: -20;
+
             overflow: hidden;
+
             pointer-events: none;
         }
 
         .magic-orb {
+
             position: absolute;
-            width: 260px;
-            height: 260px;
+
+            width: 330px;
+            height: 330px;
 
             border-radius: 50%;
-            filter: blur(65px);
-            opacity: 0.42;
 
-            animation: orbMove 20s ease-in-out infinite alternate;
+            filter: blur(85px);
+
+            opacity: .28;
+
+            animation:
+                orbMove 18s ease-in-out infinite alternate;
         }
 
-        .orb-one {
-            top: 5%;
-            left: -5%;
-            background: #ff8fc7;
+        .orb-1 {
+
+            left: -90px;
+            top: -80px;
+
+            background:
+                var(--accent-1);
         }
 
-        .orb-two {
-            top: 40%;
-            right: -8%;
-            background: #9d8cff;
-            animation-delay: 4s;
+        .orb-2 {
+
+            right: -110px;
+            top: 35%;
+
+            background:
+                var(--accent-2);
+
+            animation-delay:
+                4s;
         }
 
-        .orb-three {
-            bottom: -10%;
+        .orb-3 {
+
             left: 35%;
-            background: #7ce5ff;
-            animation-delay: 8s;
+            bottom: -120px;
+
+            background:
+                var(--accent-3);
+
+            animation-delay:
+                7s;
         }
 
         @keyframes orbMove {
 
             0% {
-                transform: translate(0, 0) scale(1);
+
+                transform:
+                    translate(0,0)
+                    scale(.9);
+
             }
 
             50% {
-                transform: translate(100px, -80px) scale(1.35);
+
+                transform:
+                    translate(100px,-80px)
+                    scale(1.35);
+
             }
 
             100% {
-                transform: translate(-80px, 100px) scale(0.9);
-            }
 
-        }
+                transform:
+                    translate(-80px,90px)
+                    scale(1.05);
 
-        .floating-sweet {
-            position: fixed;
-            z-index: -1;
-
-            font-size: 30px;
-            opacity: 0.65;
-
-            pointer-events: none;
-            animation: sweetFloat linear infinite;
-        }
-
-        @keyframes sweetFloat {
-
-            0% {
-                transform: translateY(110vh) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 0.7;
-            }
-
-            50% {
-                transform: translateY(45vh) translateX(80px) rotate(180deg);
-            }
-
-            90% {
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: translateY(-15vh) translateX(-80px) rotate(360deg);
-                opacity: 0;
             }
 
         }
 
 
-        /* =========================
-           SPARKLES
-        ========================= */
+        /* =========================================================
+           STARS
+        ========================================================= */
 
         .sparkle {
-            position: fixed;
-            z-index: -1;
 
-            width: 5px;
-            height: 5px;
+            position: fixed;
+
+            width: 4px;
+            height: 4px;
+
             border-radius: 50%;
 
             background: white;
+
             box-shadow:
-                0 0 8px white,
-                0 0 20px #ffb7e4;
+                0 0 7px white,
+                0 0 18px var(--accent-1);
+
+            opacity: .7;
 
             pointer-events: none;
-            animation: sparkleBlink ease-in-out infinite alternate;
+
+            animation:
+                sparkleBlink
+                2s
+                ease-in-out
+                infinite alternate;
         }
 
         @keyframes sparkleBlink {
 
             from {
-                opacity: 0.15;
-                transform: scale(0.4);
+
+                opacity: .12;
+
+                transform:
+                    scale(.35);
+
             }
 
             to {
+
                 opacity: 1;
-                transform: scale(1.8);
+
+                transform:
+                    scale(1.8);
+
             }
 
         }
 
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* =========================================================
+           LOADER
+        ========================================================= */
 
-        nav {
+        #loader {
+
             position: fixed;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
 
-            width: min(94%, 1150px);
-            z-index: 2000;
+            inset: 0;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            z-index: 99999;
 
-            padding: 15px 25px;
+            overflow: hidden;
 
-            border: 1px solid #ffffffbb;
-            border-radius: 50px;
+            display:
+                flex;
 
-            background: rgba(255, 255, 255, 0.48);
-            backdrop-filter: blur(20px);
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-direction:
+                column;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #ffffff55,
+                    transparent 27%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--accent-1),
+                    var(--accent-2)
+                );
+
+            transition:
+                opacity .8s ease,
+                visibility .8s ease;
+        }
+
+        #loader.finished {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+        }
+
+        .loader-core {
+
+            position:
+                relative;
+
+            z-index:
+                5;
+
+            text-align:
+                center;
+        }
+
+        .loader-cake {
+
+            font-size:
+                92px;
+
+            animation:
+                cakePulse 1.4s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes cakePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-2deg)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-13px)
+                    rotate(2deg)
+                    scale(1.08);
+
+            }
+
+        }
+
+        .loader-title {
+
+            margin-top:
+                18px;
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            color:
+                white;
+
+            font-size:
+                clamp(32px,7vw,58px);
+
+            text-shadow:
+                0 0 12px #ffffffaa,
+                0 8px 20px #74486b55;
+        }
+
+        .loader-subtitle {
+
+            margin-top:
+                8px;
+
+            color:
+                white;
+
+            font-size:
+                12px;
+
+            letter-spacing:
+                4px;
+        }
+
+        .loader-bar {
+
+            width:
+                230px;
+
+            height:
+                8px;
+
+            margin:
+                25px auto 0;
+
+            border-radius:
+                50px;
+
+            background:
+                #ffffff55;
+
+            overflow:
+                hidden;
+        }
+
+        .loader-progress {
+
+            width:
+                0;
+
+            height:
+                100%;
+
+            background:
+                white;
+
+            border-radius:
+                inherit;
+
+            animation:
+                loadingBar
+                2.2s
+                forwards;
+        }
+
+        @keyframes loadingBar {
+
+            to {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =========================================================
+           LOADER BURST
+        ========================================================= */
+
+        .loader-burst {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            overflow:
+                hidden;
+
+            pointer-events:
+                none;
+        }
+
+        .burst-item {
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            top:
+                50%;
+
+            opacity:
+                0;
+
+            font-size:
+                calc(
+                    22px +
+                    var(--size)
+                );
+
+            animation:
+                burstOut
+                2.6s
+                cubic-bezier(.2,.7,.15,1)
+                forwards;
+
+            animation-delay:
+                var(--delay);
+        }
+
+        @keyframes burstOut {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(.15)
+                    rotate(0deg);
+
+            }
+
+            14% {
+
+                opacity:
+                    1;
+
+            }
+
+            100% {
+
+                opacity:
+                    1;
+
+                transform:
+                    translate(
+                        calc(
+                            -50% +
+                            var(--x)
+                        ),
+                        calc(
+                            -50% +
+                            var(--y)
+                        )
+                    )
+                    scale(1)
+                    rotate(var(--rotate));
+
+            }
+
+        }
+
+
+        /* =========================================================
+           DRIZZLE CURTAIN
+        ========================================================= */
+
+        #drizzleCurtain {
+
+            position:
+                fixed;
+
+            inset:
+                -15% 0 0 0;
+
+            z-index:
+                99998;
+
+            pointer-events:
+                none;
+
+            transform:
+                translateY(-115%);
+
+            opacity:
+                0;
+        }
+
+        #drizzleCurtain.active {
+
+            opacity:
+                1;
+
+            animation:
+                drizzleDown
+                1.35s
+                cubic-bezier(.75,.02,.2,1)
+                forwards;
+        }
+
+        #drizzleCurtain.leave {
+
+            animation:
+                drizzleLeave
+                1.5s
+                cubic-bezier(.65,.01,.2,1)
+                forwards;
+        }
+
+        .drizzle-layer {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,.38),
+                    rgba(255,255,255,.10)
+                );
+
+            backdrop-filter:
+                blur(13px);
+        }
+
+        .drizzle-wave {
+
+            position:
+                absolute;
+
+            top:
+                0;
+
+            width:
+                100%;
+
+            height:
+                35%;
+
+            border-radius:
+                0 0 50% 50% / 0 0 35% 35%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffffee,
+                    #ffffff75,
+                    transparent
+                );
 
             box-shadow:
-                0 10px 40px rgba(169, 102, 169, 0.18),
-                inset 0 1px 0 white;
+                0 10px 45px #ffffff55;
+        }
+
+        .drip {
+
+            position:
+                absolute;
+
+            left:
+                var(--left);
+
+            top:
+                0;
+
+            width:
+                var(--width);
+
+            height:
+                var(--height);
+
+            border-radius:
+                0 0 40px 40px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffffe8,
+                    #ffffff66
+                );
+
+            box-shadow:
+                0 5px 20px #ffffff44;
+        }
+
+        @keyframes drizzleDown {
+
+            from {
+
+                transform:
+                    translateY(-115%);
+
+            }
+
+            to {
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+        @keyframes drizzleLeave {
+
+            from {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            to {
+
+                transform:
+                    translateY(-120%);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           NAV
+        ========================================================= */
+
+        .topbar {
+
+            position:
+                fixed;
+
+            top:
+                18px;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                min(94%,1180px);
+
+            z-index:
+                5000;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            padding:
+                13px 20px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(22px);
+
+            box-shadow:
+                var(--shadow),
+                inset 0 1px 0 #ffffffcc;
         }
 
         .logo {
-            font-family: "Pacifico", cursive;
-            font-size: 23px;
-            color: #ad62a8;
-            white-space: nowrap;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size:
+                22px;
+
+            color:
+                var(--accent-1);
+
+            text-shadow:
+                0 0 16px var(--accent-soft);
+
+            white-space:
+                nowrap;
         }
 
         .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
+
+            display:
+                flex;
+
+            list-style:
+                none;
+
+            gap:
+                22px;
         }
 
         .nav-links a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
+
+            position:
+                relative;
+
+            text-decoration:
+                none;
+
+            font-size:
+                14px;
+
+            transition:
+                .3s;
         }
 
         .nav-links a:hover {
-            color: var(--hot-pink);
-            text-shadow: 0 0 10px #ff9ed366;
+
+            color:
+                var(--accent-1);
+
+        }
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            bottom:
+                -6px;
+
+            width:
+                0;
+
+            height:
+                2px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius:
+                50px;
+
+            background:
+                var(--accent-1);
+
+            transition:
+                .3s;
+        }
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
         }
 
 
-        /* =========================
+        /* =========================================================
+           THEME SWITCHER
+        ========================================================= */
+
+        .theme-switcher {
+
+            position:
+                fixed;
+
+            right:
+                20px;
+
+            top:
+                95px;
+
+            z-index:
+                5001;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                8px;
+
+            padding:
+                10px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                24px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .theme-button {
+
+            position:
+                relative;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            cursor:
+                pointer;
+
+            background:
+                var(--glass-strong);
+
+            box-shadow:
+                inset 0 1px 0 #ffffffaa;
+
+            font-size:
+                19px;
+
+            transition:
+                .3s;
+        }
+
+        .theme-button:hover {
+
+            transform:
+                translateX(-5px)
+                scale(1.08);
+
+        }
+
+        .theme-button.active {
+
+            box-shadow:
+                0 0 0 2px
+                var(--accent-1),
+
+                0 0 22px
+                var(--accent-soft);
+        }
+
+        .theme-tooltip {
+
+            position:
+                absolute;
+
+            right:
+                52px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%)
+                translateX(5px);
+
+            padding:
+                6px 10px;
+
+            border-radius:
+                10px;
+
+            background:
+                rgba(30,20,40,.80);
+
+            color:
+                white;
+
+            font-size:
+                11px;
+
+            white-space:
+                nowrap;
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            transition:
+                .25s;
+        }
+
+        .theme-button:hover
+        .theme-tooltip {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(-50%)
+                translateX(0);
+        }
+
+
+        /* =========================================================
            HERO
-        ========================= */
+        ========================================================= */
 
         .hero {
-            min-height: 100vh;
-            padding: 150px 7% 90px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position:
+                relative;
 
-            text-align: center;
+            min-height:
+                100vh;
+
+            padding:
+                155px 7% 185px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+
+            text-align:
+                center;
         }
+
+
+        /* Decorative radial stage */
+
+        .hero-stage {
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            top:
+                51%;
+
+            width:
+                min(720px,90vw);
+
+            height:
+                min(720px,90vw);
+
+            transform:
+                translate(-50%,-50%);
+
+            pointer-events:
+                none;
+
+            z-index:
+                0;
+        }
+
+        .hero-stage::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                18%;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 68%
+                );
+
+            filter:
+                blur(15px);
+
+            animation:
+                stagePulse
+                5s
+                ease-in-out
+                infinite alternate;
+        }
+
+        .hero-stage::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                24%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.55);
+
+            border-radius:
+                50%;
+
+            box-shadow:
+                0 0 40px
+                var(--accent-soft);
+
+            animation:
+                ringPulse
+                6s
+                linear
+                infinite;
+        }
+
+        @keyframes stagePulse {
+
+            from {
+
+                transform:
+                    scale(.92);
+
+                opacity:
+                    .65;
+            }
+
+            to {
+
+                transform:
+                    scale(1.10);
+
+                opacity:
+                    1;
+            }
+
+        }
+
+        @keyframes ringPulse {
+
+            from {
+
+                transform:
+                    rotate(0deg)
+                    scale(1);
+
+            }
+
+            to {
+
+                transform:
+                    rotate(360deg)
+                    scale(1.08);
+
+            }
+
+        }
+
+
+        /* Orbit rings */
+
+        .orbit {
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            top:
+                50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.55);
+
+            border-radius:
+                50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            box-shadow:
+                0 0 20px
+                rgba(255,255,255,.25);
+        }
+
+        .orbit.one {
+
+            width:
+                520px;
+
+            height:
+                180px;
+
+            transform:
+                translate(-50%,-50%)
+                rotate(14deg);
+
+            animation:
+                orbitSpin1
+                14s
+                linear
+                infinite;
+        }
+
+        .orbit.two {
+
+            width:
+                590px;
+
+            height:
+                220px;
+
+            transform:
+                translate(-50%,-50%)
+                rotate(-20deg);
+
+            animation:
+                orbitSpin2
+                19s
+                linear
+                infinite reverse;
+        }
+
+        @keyframes orbitSpin1 {
+
+            from {
+
+                transform:
+                    translate(-50%,-50%)
+                    rotate(14deg);
+
+            }
+
+            to {
+
+                transform:
+                    translate(-50%,-50%)
+                    rotate(374deg);
+
+            }
+
+        }
+
+        @keyframes orbitSpin2 {
+
+            from {
+
+                transform:
+                    translate(-50%,-50%)
+                    rotate(-20deg);
+
+            }
+
+            to {
+
+                transform:
+                    translate(-50%,-50%)
+                    rotate(340deg);
+
+            }
+
+        }
+
+
+        /* Floating decorative candy satellites */
+
+        .hero-candy {
+
+            position:
+                absolute;
+
+            z-index:
+                1;
+
+            font-size:
+                36px;
+
+            filter:
+                drop-shadow(
+                    0 8px 14px
+                    var(--accent-soft)
+                );
+
+            animation:
+                candyFloat
+                5s
+                ease-in-out
+                infinite;
+        }
+
+        .hero-candy.one {
+
+            left:
+                15%;
+
+            top:
+                29%;
+
+        }
+
+        .hero-candy.two {
+
+            right:
+                15%;
+
+            top:
+                27%;
+
+            animation-delay:
+                .8s;
+        }
+
+        .hero-candy.three {
+
+            left:
+                22%;
+
+            bottom:
+                23%;
+
+            animation-delay:
+                1.5s;
+        }
+
+        .hero-candy.four {
+
+            right:
+                21%;
+
+            bottom:
+                22%;
+
+            animation-delay:
+                2.2s;
+        }
+
+        @keyframes candyFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-18px)
+                    rotate(8deg);
+
+            }
+
+        }
+
+
+        /* Hero floating glass cards */
+
+        .floating-info {
+
+            position:
+                absolute;
+
+            z-index:
+                2;
+
+            padding:
+                13px 17px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                18px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                var(--shadow),
+                inset 0 1px 0 #ffffffaa;
+
+            font-size:
+                12px;
+
+            text-align:
+                left;
+
+            animation:
+                infoFloat
+                6s
+                ease-in-out
+                infinite;
+        }
+
+        .floating-info strong {
+
+            display:
+                block;
+
+            color:
+                var(--accent-1);
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                2px;
+        }
+
+        .floating-info.left {
+
+            left:
+                5%;
+
+            top:
+                42%;
+
+            transform:
+                rotate(-5deg);
+        }
+
+        .floating-info.right {
+
+            right:
+                5%;
+
+            top:
+                48%;
+
+            transform:
+                rotate(5deg);
+
+            animation-delay:
+                1.2s;
+        }
+
+        @keyframes infoFloat {
+
+            0%,
+            100% {
+
+                translate:
+                    0 0;
+
+            }
+
+            50% {
+
+                translate:
+                    0 -14px;
+
+            }
+
+        }
+
+
+        /* Hero central portal */
+
+        .hero-portal {
+
+            position:
+                absolute;
+
+            z-index:
+                1;
+
+            left:
+                50%;
+
+            top:
+                51%;
+
+            width:
+                min(520px,72vw);
+
+            aspect-ratio:
+                1;
+
+            transform:
+                translate(-50%,-50%);
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,255,255,.48),
+                    rgba(255,255,255,.08) 44%,
+                    transparent 67%
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.56);
+
+            box-shadow:
+                inset 0 0 50px
+                rgba(255,255,255,.35),
+
+                0 0 50px
+                var(--accent-soft);
+
+            animation:
+                portalBreath
+                5s
+                ease-in-out
+                infinite alternate;
+
+            pointer-events:
+                none;
+        }
+
+        @keyframes portalBreath {
+
+            from {
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(.94);
+
+            }
+
+            to {
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(1.04);
+
+            }
+
+        }
+
+
+        /* Hero content */
 
         .hero-content {
-            max-width: 950px;
-            transition: transform 0.2s ease-out;
+
+            position:
+                relative;
+
+            z-index:
+                10;
+
+            max-width:
+                950px;
+
+            transition:
+                transform .16s ease-out;
         }
 
-        .hero-label {
-            font-size: 14px;
-            letter-spacing: 5px;
-            color: #ae70af;
+        .eyebrow {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                8px 15px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(14px);
+
+            color:
+                var(--accent-1);
+
+            letter-spacing:
+                4px;
+
+            font-size:
+                12px;
+
+            box-shadow:
+                inset 0 1px 0 #ffffffaa,
+                0 10px 30px var(--accent-soft);
         }
 
-        .hero h1 {
-            margin: 20px 0;
+        .chapter-badge {
 
-            font-family: "Pacifico", cursive;
-            font-size: clamp(48px, 10vw, 115px);
-            line-height: 1.25;
+            margin:
+                17px auto 2px;
+
+            width:
+                fit-content;
+
+            padding:
+                6px 14px;
+
+            border-radius:
+                50px;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(12px);
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                2px;
+        }
+
+
+        .hero-title {
+
+            position:
+                relative;
+
+            margin:
+                11px 0 8px;
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size:
+                clamp(50px,10vw,110px);
+
+            line-height:
+                1.2;
+
+            background:
+                var(--hero-gradient);
+
+            background-size:
+                300% 300%;
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+            animation:
+                titleGradient
+                8s
+                linear
+                infinite;
+
+            filter:
+                drop-shadow(
+                    0 12px 18px
+                    rgba(130,80,140,.13)
+                );
+        }
+
+        .hero-title::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                -18px -35px;
+
+            border-radius:
+                80px;
 
             background:
                 linear-gradient(
                     90deg,
-                    #ee70b7,
-                    #a78bf2,
-                    #66cde8,
-                    #ee70b7
+                    transparent,
+                    rgba(255,255,255,.48),
+                    transparent
                 );
 
-            background-size: 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            filter:
+                blur(18px);
 
-            animation: rainbowText 8s linear infinite;
+            opacity:
+                .7;
 
-            filter: drop-shadow(0 10px 15px #c27cb733);
+            animation:
+                titleShine
+                4.5s
+                ease-in-out
+                infinite;
+
+            pointer-events:
+                none;
         }
 
-        @keyframes rainbowText {
+        @keyframes titleGradient {
 
             from {
-                background-position: 0%;
+
+                background-position:
+                    0% 50%;
+
             }
 
             to {
-                background-position: 300%;
+
+                background-position:
+                    300% 50%;
+
             }
 
         }
 
-        .hero h2 {
-            font-size: clamp(22px, 4vw, 42px);
-            color: #79507f;
-            font-weight: 600;
+        @keyframes titleShine {
+
+            0% {
+
+                transform:
+                    translateX(-75%);
+
+            }
+
+            45%,
+            100% {
+
+                transform:
+                    translateX(75%);
+
+            }
+
+        }
+
+
+        .hero-subtitle {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                10px 20px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50px;
+
+            background:
+                var(--glass-strong);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                inset 0 1px 0 #ffffffbb,
+                var(--glow);
+
+            font-size:
+                clamp(20px,4vw,38px);
+
+            color:
+                var(--text-main);
         }
 
         .hero-description {
-            max-width: 700px;
-            margin: 25px auto;
 
-            font-size: 17px;
-            line-height: 2;
-            color: #7d6382;
+            max-width:
+                750px;
+
+            margin:
+                23px auto;
+
+            font-size:
+                16px;
+
+            line-height:
+                2;
+
+            color:
+                var(--text-soft);
         }
 
         .hero-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 35px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                13px;
+
+            margin-top:
+                30px;
         }
 
-        .main-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .hero-btn {
 
-            padding: 15px 32px;
-            border-radius: 50px;
+            display:
+                inline-flex;
 
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
+            align-items:
+                center;
 
-            background: linear-gradient(
-                100deg,
-                #f58abd,
-                #a98cf5
-            );
+            justify-content:
+                center;
 
-            box-shadow:
-                0 10px 30px #bd7db655,
-                inset 0 1px 0 #ffffffaa;
+            gap:
+                8px;
 
-            transition: 0.35s;
-        }
+            padding:
+                14px 25px;
 
-        .main-button:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow:
-                0 18px 45px #bd7db677,
-                0 0 25px #ffb6e866;
-        }
+            border:
+                1px solid var(--line);
 
-        .secondary-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            border-radius:
+                50px;
 
-            padding: 15px 30px;
-            border-radius: 50px;
+            text-decoration:
+                none;
 
-            text-decoration: none;
-            color: #9c6ca3;
-            font-weight: 500;
-
-            border: 1px solid white;
-            background: #ffffff66;
-            backdrop-filter: blur(10px);
-
-            transition: 0.35s;
-        }
-
-        .secondary-button:hover {
-            transform: translateY(-6px);
-            background: white;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        section {
-            padding: 110px 7%;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-heading span {
-            font-size: 13px;
-            letter-spacing: 4px;
-            color: #b46eac;
-        }
-
-        .section-heading h2 {
-            margin-top: 12px;
-
-            font-family: "Pacifico", cursive;
-            font-size: clamp(32px, 6vw, 60px);
-            color: #87639d;
-        }
-
-        .section-heading p {
-            margin-top: 12px;
-            color: #866c8d;
-        }
-
-
-        /* =========================
-           DESSERT GALLERY
-        ========================= */
-
-        .gallery {
-            max-width: 1250px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .dessert-card {
-            position: relative;
-            overflow: hidden;
-
-            border: 1px solid #ffffff;
-            border-radius: 32px;
-
-            background: rgba(255, 255, 255, 0.48);
-            backdrop-filter: blur(18px);
-
-            box-shadow:
-                0 20px 55px rgba(157, 103, 158, 0.2),
-                inset 0 1px 0 white;
-
-            transform-style: preserve-3d;
             transition:
-                transform 0.15s ease-out,
-                box-shadow 0.3s ease;
+                .35s;
 
-            will-change: transform;
+            backdrop-filter:
+                blur(14px);
         }
 
-        .dessert-card::before {
-            content: "";
+        .hero-btn.primary {
 
-            position: absolute;
-            inset: -100%;
-
-            background: linear-gradient(
-                120deg,
-                transparent 35%,
-                #ffffff88 50%,
-                transparent 65%
-            );
-
-            transform: rotate(20deg);
-            transition: 0.7s;
-            pointer-events: none;
-        }
-
-        .dessert-card:hover::before {
-            inset: 100%;
-        }
-
-        .dessert-card:hover {
-            box-shadow:
-                0 30px 70px rgba(169, 104, 164, 0.4),
-                0 0 30px rgba(255, 178, 224, 0.25);
-        }
-
-        .dessert-image {
-            height: 270px;
-            overflow: hidden;
+            color:
+                white;
 
             background:
                 linear-gradient(
-                    135deg,
-                    #ffd5ec,
-                    #d5c7ff
-                );
-        }
-
-        .dessert-image img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-            display: block;
-
-            transition: transform 0.7s ease;
-        }
-
-        .dessert-card:hover .dessert-image img {
-            transform: scale(1.13) rotate(2deg);
-        }
-
-        .card-content {
-            padding: 28px;
-        }
-
-        .tag {
-            display: inline-block;
-
-            padding: 5px 13px;
-            border-radius: 50px;
-
-            color: #b05d9c;
-            background: #ffe0f0;
-
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        .card-content h3 {
-            margin-top: 14px;
-            font-size: 25px;
-            color: #965e9e;
-        }
-
-        .card-content p {
-            margin-top: 10px;
-
-            font-size: 15px;
-            line-height: 1.9;
-            color: #806583;
-        }
-
-        .card-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-top: 20px;
-            color: #bd7bb0;
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           TIMELINE
-        ========================= */
-
-        .timeline {
-            max-width: 950px;
-            margin: auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: "";
-
-            position: absolute;
-            left: 27px;
-            top: 0;
-            bottom: 0;
-
-            width: 4px;
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    #f5a2d1,
-                    #bba1f7,
-                    #8bdff3
+                    100deg,
+                    var(--accent-1),
+                    var(--accent-2)
                 );
 
-            box-shadow: 0 0 18px #d69acb66;
+            box-shadow:
+                0 12px 35px
+                var(--accent-soft);
         }
 
-        .timeline-item {
-            position: relative;
-            padding-left: 85px;
-            margin-bottom: 42px;
+        .hero-btn.secondary {
+
+            background:
+                var(--glass);
+
+            color:
+                var(--text-main);
         }
 
-        .timeline-icon {
-            position: absolute;
-            left: 0;
+        .hero-btn:hover {
 
-            width: 58px;
-            height: 58px;
-
-            display: grid;
-            place-items: center;
-
-            border: 4px solid #f4b1d8;
-            border-radius: 50%;
-
-            background: white;
-            font-size: 25px;
+            transform:
+                translateY(-7px)
+                scale(1.03);
 
             box-shadow:
-                0 5px 25px #c48bb044,
-                0 0 15px #ffffffaa;
-        }
-
-        .timeline-box {
-            padding: 27px;
-            border-radius: 28px;
-
-            border: 1px solid white;
-            background: #ffffff80;
-            backdrop-filter: blur(15px);
-
-            box-shadow: 0 15px 35px #b77fa522;
-            transition: 0.35s;
-        }
-
-        .timeline-box:hover {
-            transform: translateX(12px);
-            box-shadow: 0 20px 45px #b77fa544;
-        }
-
-        .timeline-box h3 {
-            font-size: 23px;
-            color: #9869ae;
-        }
-
-        .timeline-box p {
-            margin-top: 10px;
-            line-height: 1.9;
-            color: #806583;
+                0 18px 40px
+                var(--accent-soft);
         }
 
 
-        /* =========================
-           QUOTE
-        ========================= */
+        /* Hero lower glass shelf */
 
-        .quote-box {
-            position: relative;
-            overflow: hidden;
+        .hero-shelf {
 
-            max-width: 1050px;
-            margin: auto;
+            position:
+                absolute;
 
-            padding: 75px 30px;
-            text-align: center;
+            left:
+                50%;
 
-            border: 2px solid white;
-            border-radius: 45px;
+            bottom:
+                52px;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                min(760px,86vw);
+
+            height:
+                90px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50%
+                50%
+                25px
+                25px;
 
             background:
                 linear-gradient(
-                    135deg,
+                    to bottom,
+                    rgba(255,255,255,.40),
+                    rgba(255,255,255,.10)
+                );
+
+            backdrop-filter:
+                blur(13px);
+
+            box-shadow:
+                inset 0 10px 35px #ffffff22,
+                0 25px 50px
+                var(--accent-soft);
+
+            z-index:
+                3;
+        }
+
+        .hero-shelf::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                10%;
+
+            right:
+                10%;
+
+            top:
+                50%;
+
+            height:
+                2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
                     #ffffffaa,
-                    #ffe4f499
+                    transparent
                 );
-
-            backdrop-filter: blur(20px);
-
-            box-shadow:
-                0 25px 70px #b77ca633,
-                inset 0 1px 0 white;
         }
 
-        .quote-box::before {
-            content: "✦";
+        .hero-shelf-items {
 
-            position: absolute;
-            top: 20px;
-            left: 30px;
+            position:
+                absolute;
 
-            font-size: 35px;
-            color: #ffffff;
-            animation: sparkleBlink 1.5s infinite alternate;
+            left:
+                50%;
+
+            top:
+                -37px;
+
+            transform:
+                translateX(-50%);
+
+            display:
+                flex;
+
+            gap:
+                20px;
+
+            align-items:
+                flex-end;
+
+            font-size:
+                39px;
+
+            white-space:
+                nowrap;
+
+            filter:
+                drop-shadow(
+                    0 7px 12px
+                    var(--accent-soft)
+                );
         }
 
-        .quote-box::after {
-            content: "✧";
+        .hero-shelf-items span {
 
-            position: absolute;
-            bottom: 20px;
-            right: 35px;
+            display:
+                inline-block;
 
-            font-size: 45px;
-            color: #ffffff;
-            animation: sparkleBlink 2s infinite alternate;
+            animation:
+                shelfBounce
+                3.2s
+                ease-in-out
+                infinite alternate;
         }
 
-        .quote-icon {
-            font-size: 55px;
+        .hero-shelf-items span:nth-child(2) {
+            animation-delay: .3s;
         }
 
-        .quote-box h3 {
-            margin: 20px 0;
-
-            font-family: "Pacifico", cursive;
-            font-size: clamp(25px, 5vw, 45px);
-            color: #ad70a8;
+        .hero-shelf-items span:nth-child(3) {
+            animation-delay: .6s;
         }
 
-        .quote-box p {
-            max-width: 650px;
-            margin: auto;
-            line-height: 2;
-            color: #826982;
+        .hero-shelf-items span:nth-child(4) {
+            animation-delay: .9s;
         }
 
+        @keyframes shelfBounce {
 
-        /* =========================
-           FOOTER
-        ========================= */
+            from {
 
-        footer {
-            padding: 65px 20px;
-            text-align: center;
+                transform:
+                    translateY(0)
+                    rotate(-4deg);
 
-            border-top: 1px solid white;
-            background: #ffffff70;
-            backdrop-filter: blur(15px);
-        }
+            }
 
-        footer h2 {
-            font-family: "Pacifico", cursive;
-            font-size: 34px;
-            color: #a66eaa;
-        }
+            to {
 
-        footer p {
-            margin-top: 12px;
-            color: #806583;
-        }
+                transform:
+                    translateY(-8px)
+                    rotate(4deg);
 
-        .footer-line {
-            margin-top: 25px;
-            color: #bd83b5;
-            letter-spacing: 2px;
+            }
+
         }
 
 
-        /* =========================
-           CLICK PARTICLES
-        ========================= */
+        /* Scroll hint */
 
-        .click-particle {
-            position: fixed;
-            z-index: 9999;
+        .scroll-hint {
 
-            pointer-events: none;
-            font-size: 22px;
+            position:
+                absolute;
 
-            animation: particleExplosion 1s ease-out forwards;
+            bottom:
+                14px;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index:
+                10;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                center;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                2px;
+
+            opacity:
+                .75;
         }
 
-        @keyframes particleExplosion {
+        .scroll-hint span {
+
+            display:
+                block;
+
+            width:
+                18px;
+
+            height:
+                30px;
+
+            margin-top:
+                6px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                20px;
+
+            position:
+                relative;
+
+            background:
+                var(--glass);
+        }
+
+        .scroll-hint span::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            top:
+                6px;
+
+            width:
+                3px;
+
+            height:
+                7px;
+
+            border-radius:
+                20px;
+
+            background:
+                var(--accent-1);
+
+            transform:
+                translateX(-50%);
+
+            animation:
+                wheel 1.4s
+                infinite;
+        }
+
+        @keyframes wheel {
 
             0% {
-                opacity: 1;
-                transform: translate(0, 0) scale(0.5) rotate(0deg);
+
+                top:
+                    5px;
+
+                opacity:
+                    0;
+
+            }
+
+            30% {
+
+                opacity:
+                    1;
+
             }
 
             100% {
-                opacity: 0;
-                transform:
-                    translate(var(--move-x), var(--move-y))
-                    scale(1.7)
-                    rotate(240deg);
+
+                top:
+                    16px;
+
+                opacity:
+                    0;
+
             }
 
         }
 
 
-        /* =========================
-           SCROLL REVEAL
-        ========================= */
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+
+            position:
+                relative;
+
+            padding:
+                110px 7%;
+        }
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                58px;
+        }
+
+        .section-kicker {
+
+            color:
+                var(--accent-1);
+
+            letter-spacing:
+                4px;
+
+            font-size:
+                12px;
+        }
+
+        .section-title {
+
+            margin-top:
+                10px;
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size:
+                clamp(32px,6vw,60px);
+
+            color:
+                var(--text-main);
+
+            text-shadow:
+                0 0 22px
+                var(--accent-soft);
+        }
+
+        .section-description {
+
+            margin-top:
+                12px;
+
+            color:
+                var(--text-soft);
+        }
+
+
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+
+        .gallery {
+
+            max-width:
+                1250px;
+
+            margin:
+                0 auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                32px;
+
+            perspective:
+                1500px;
+        }
+
+        .story-card {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                30px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                var(--shadow),
+                inset 0 1px 0 #ffffffaa;
+
+            transform-style:
+                preserve-3d;
+
+            transition:
+                transform .12s ease-out,
+                box-shadow .35s ease;
+
+            will-change:
+                transform;
+        }
+
+        .story-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                -120%;
+
+            background:
+                linear-gradient(
+                    115deg,
+                    transparent 38%,
+                    #ffffff66 50%,
+                    transparent 62%
+                );
+
+            transform:
+                rotate(18deg);
+
+            transition:
+                .7s;
+
+            z-index:
+                4;
+
+            pointer-events:
+                none;
+        }
+
+        .story-card:hover::before {
+
+            inset:
+                120%;
+
+        }
+
+        .story-card:hover {
+
+            box-shadow:
+                0 30px 72px
+                var(--accent-soft),
+                0 0 35px
+                var(--accent-soft);
+        }
+
+        .card-light {
+
+            position:
+                absolute;
+
+            width:
+                170px;
+
+            height:
+                170px;
+
+            border-radius:
+                50%;
+
+            pointer-events:
+                none;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.32),
+                    transparent 70%
+                );
+
+            transform:
+                translate(-50%,-50%);
+
+            opacity:
+                0;
+        }
+
+        .story-card:hover .card-light {
+
+            opacity:
+                1;
+
+        }
+
+        .image-frame {
+
+            position:
+                relative;
+
+            height:
+                290px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent-soft),
+                    rgba(255,255,255,.35)
+                );
+        }
+
+        .image-frame::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            border:
+                1px solid #ffffff55;
+
+            box-shadow:
+                inset 0 0 35px #ffffff22;
+
+            pointer-events:
+                none;
+        }
+
+        .story-image {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            display:
+                block;
+
+            object-fit:
+                cover;
+
+            transform:
+                scale(1);
+
+            transition:
+                transform .55s
+                cubic-bezier(.2,.7,.2,1);
+        }
+
+        .story-card:hover .story-image {
+
+            transform:
+                scale(1.08);
+
+        }
+
+        .card-content {
+
+            padding:
+                27px;
+        }
+
+        .card-tag {
+
+            display:
+                inline-flex;
+
+            padding:
+                5px 12px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50px;
+
+            background:
+                var(--glass-strong);
+
+            color:
+                var(--accent-1);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                1.2px;
+        }
+
+        .card-title {
+
+            margin-top:
+                14px;
+
+            font-size:
+                26px;
+
+            color:
+                var(--text-main);
+        }
+
+        .card-text {
+
+            margin-top:
+                9px;
+
+            line-height:
+                1.9;
+
+            font-size:
+                14px;
+
+            color:
+                var(--text-soft);
+        }
+
+        .card-meta {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            margin-top:
+                20px;
+
+            color:
+                var(--accent-1);
+
+            font-size:
+                12px;
+        }
+
+
+        /* =========================================================
+           TIMELINE
+        ========================================================= */
+
+        .timeline {
+
+            max-width:
+                950px;
+
+            margin:
+                auto;
+
+            position:
+                relative;
+        }
+
+        .timeline::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                28px;
+
+            top:
+                0;
+
+            bottom:
+                0;
+
+            width:
+                4px;
+
+            border-radius:
+                20px;
+
+            background:
+                linear-gradient(
+                    var(--accent-1),
+                    var(--accent-2),
+                    var(--accent-3)
+                );
+
+            box-shadow:
+                0 0 20px
+                var(--accent-soft);
+        }
+
+        .timeline-item {
+
+            position:
+                relative;
+
+            padding-left:
+                88px;
+
+            margin-bottom:
+                42px;
+        }
+
+        .timeline-icon {
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            width:
+                58px;
+
+            height:
+                58px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                3px solid var(--line);
+
+            border-radius:
+                50%;
+
+            background:
+                var(--glass-strong);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                var(--glow);
+
+            font-size:
+                24px;
+        }
+
+        .timeline-box {
+
+            padding:
+                28px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                27px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                .35s;
+        }
+
+        .timeline-box:hover {
+
+            transform:
+                translateX(12px);
+
+            box-shadow:
+                0 25px 55px
+                var(--accent-soft);
+        }
+
+        .timeline-title {
+
+            font-size:
+                22px;
+
+            color:
+                var(--text-main);
+        }
+
+        .timeline-text {
+
+            margin-top:
+                10px;
+
+            line-height:
+                1.9;
+
+            color:
+                var(--text-soft);
+        }
+
+
+        /* =========================================================
+           QUOTE
+        ========================================================= */
+
+        .quote-box {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            max-width:
+                1050px;
+
+            margin:
+                auto;
+
+            padding:
+                70px 30px;
+
+            text-align:
+                center;
+
+            border:
+                2px solid var(--line);
+
+            border-radius:
+                42px;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(25px);
+
+            box-shadow:
+                var(--shadow),
+                var(--glow);
+        }
+
+        .quote-box::before {
+
+            content:
+                "✦";
+
+            position:
+                absolute;
+
+            top:
+                20px;
+
+            left:
+                28px;
+
+            color:
+                white;
+
+            font-size:
+                40px;
+
+            animation:
+                sparkleBlink
+                1.5s
+                infinite
+                alternate;
+        }
+
+        .quote-box::after {
+
+            content:
+                "✧";
+
+            position:
+                absolute;
+
+            bottom:
+                20px;
+
+            right:
+                30px;
+
+            color:
+                white;
+
+            font-size:
+                45px;
+
+            animation:
+                sparkleBlink
+                2s
+                infinite
+                alternate;
+        }
+
+        .quote-emoji {
+
+            font-size:
+                54px;
+        }
+
+        .quote-title {
+
+            margin:
+                18px auto;
+
+            max-width:
+                780px;
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size:
+                clamp(27px,5vw,46px);
+
+            color:
+                var(--accent-1);
+
+            text-shadow:
+                0 0 22px
+                var(--accent-soft);
+        }
+
+        .quote-text {
+
+            max-width:
+                700px;
+
+            margin:
+                auto;
+
+            line-height:
+                2;
+
+            color:
+                var(--text-soft);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            position:
+                relative;
+
+            padding:
+                85px 20px 180px;
+
+            text-align:
+                center;
+
+            border-top:
+                1px solid var(--line);
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(18px);
+        }
+
+        .footer-title {
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size:
+                34px;
+
+            color:
+                var(--accent-1);
+
+            text-shadow:
+                0 0 18px
+                var(--accent-soft);
+        }
+
+        .footer-text {
+
+            margin-top:
+                10px;
+
+            color:
+                var(--text-soft);
+        }
+
+        .footer-line {
+
+            margin-top:
+                25px;
+
+            color:
+                var(--accent-1);
+
+            letter-spacing:
+                2px;
+        }
+
+
+        /* =========================================================
+           GIANT BOTTOM PILE
+        ========================================================= */
+
+        .bottom-dessert-pile {
+
+            position:
+                fixed;
+
+            left:
+                0;
+
+            right:
+                0;
+
+            bottom:
+                -18px;
+
+            z-index:
+                1200;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                flex-end;
+
+            gap:
+                3px;
+
+            pointer-events:
+                none;
+
+            filter:
+                drop-shadow(
+                    0 -8px 20px
+                    var(--accent-soft)
+                );
+        }
+
+        .pile-item {
+
+            font-size:
+                clamp(35px,7vw,74px);
+
+            display:
+                inline-block;
+
+            animation:
+                pileBounce
+                3s
+                ease-in-out
+                infinite
+                alternate;
+        }
+
+        @keyframes pileBounce {
+
+            from {
+
+                translate:
+                    0 0;
+
+            }
+
+            to {
+
+                translate:
+                    0 -7px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           FLOATING SWEETS
+        ========================================================= */
+
+        .floating-sweet {
+
+            position:
+                fixed;
+
+            z-index:
+                -1;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .78;
+
+            animation:
+                floatSweet
+                linear
+                forwards;
+        }
+
+        @keyframes floatSweet {
+
+            0% {
+
+                transform:
+                    translateY(110vh)
+                    translateX(0)
+                    rotate(0deg);
+
+                opacity:
+                    0;
+            }
+
+            10% {
+
+                opacity:
+                    .78;
+            }
+
+            50% {
+
+                transform:
+                    translateY(46vh)
+                    translateX(var(--sway))
+                    rotate(180deg);
+            }
+
+            90% {
+
+                opacity:
+                    .78;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-15vh)
+                    translateX(
+                        calc(
+                            var(--sway) * -1
+                        )
+                    )
+                    rotate(360deg);
+
+                opacity:
+                    0;
+            }
+
+        }
+
+
+        /* =========================================================
+           REAL BALLOONS
+        ========================================================= */
+
+        .balloon-layer {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                100;
+
+            pointer-events:
+                none;
+
+            overflow:
+                hidden;
+        }
+
+        .balloon {
+
+            position:
+                absolute;
+
+            bottom:
+                -150px;
+
+            width:
+                72px;
+
+            height:
+                90px;
+
+            cursor:
+                pointer;
+
+            pointer-events:
+                auto;
+
+            opacity:
+                0;
+
+            animation:
+                balloonRise
+                var(--duration)
+                linear
+                forwards;
+        }
+
+        .balloon-body {
+
+            position:
+                relative;
+
+            width:
+                62px;
+
+            height:
+                74px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50% 50%
+                48% 48%
+                45% 45%;
+
+            border:
+                2px solid #ffffff88;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    #ffffffaa,
+                    transparent 20%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--balloon-a),
+                    var(--balloon-b)
+                );
+
+            box-shadow:
+                0 12px 25px
+                rgba(70,40,80,.20),
+                inset 0 0 18px
+                #ffffff25;
+
+            transition:
+                .2s;
+        }
+
+        .balloon-body::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            bottom:
+                -7px;
+
+            transform:
+                translateX(-50%)
+                rotate(45deg);
+
+            width:
+                13px;
+
+            height:
+                13px;
+
+            background:
+                var(--balloon-b);
+        }
+
+        .balloon-icon {
+
+            font-size:
+                25px;
+
+            z-index:
+                2;
+
+            filter:
+                drop-shadow(
+                    0 2px 4px
+                    rgba(0,0,0,.12)
+                );
+        }
+
+        .balloon-string {
+
+            width:
+                1px;
+
+            height:
+                55px;
+
+            margin:
+                -1px auto 0;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    #ffffffaa
+                );
+        }
+
+        .balloon:hover
+        .balloon-body {
+
+            transform:
+                scale(1.12)
+                rotate(-4deg);
+
+            box-shadow:
+                0 0 30px
+                var(--accent-soft),
+                inset 0 0 20px
+                #ffffff38;
+        }
+
+        @keyframes balloonRise {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    rotate(-6deg);
+
+                opacity:
+                    0;
+            }
+
+            10% {
+
+                opacity:
+                    .95;
+            }
+
+            45% {
+
+                transform:
+                    translateY(-50vh)
+                    translateX(35px)
+                    rotate(7deg);
+
+            }
+
+            75% {
+
+                transform:
+                    translateY(-82vh)
+                    translateX(-30px)
+                    rotate(-5deg);
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-125vh)
+                    translateX(20px)
+                    rotate(6deg);
+
+                opacity:
+                    0;
+            }
+
+        }
+
+
+        /* =========================================================
+           BALLOON BURST
+        ========================================================= */
+
+        .balloon-burst {
+
+            position:
+                fixed;
+
+            z-index:
+                9997;
+
+            pointer-events:
+                none;
+
+            font-size:
+                21px;
+
+            animation:
+                balloonBurst
+                1.1s
+                cubic-bezier(.15,.7,.2,1)
+                forwards;
+        }
+
+        @keyframes balloonBurst {
+
+            0% {
+
+                opacity:
+                    1;
+
+                transform:
+                    translate(0,0)
+                    scale(.4)
+                    rotate(0deg);
+            }
+
+            100% {
+
+                opacity:
+                    0;
+
+                transform:
+                    translate(
+                        var(--bx),
+                        var(--by)
+                    )
+                    scale(1.45)
+                    rotate(var(--br));
+            }
+
+        }
+
+        .burst-ring {
+
+            position:
+                fixed;
+
+            z-index:
+                9996;
+
+            width:
+                20px;
+
+            height:
+                20px;
+
+            border:
+                3px solid
+                white;
+
+            border-radius:
+                50%;
+
+            pointer-events:
+                none;
+
+            box-shadow:
+                0 0 20px
+                var(--accent-soft);
+
+            animation:
+                ringBurst
+                .7s
+                ease-out
+                forwards;
+        }
+
+        @keyframes ringBurst {
+
+            from {
+
+                opacity:
+                    1;
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(.2);
+            }
+
+            to {
+
+                opacity:
+                    0;
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(5);
+            }
+
+        }
+
+
+        /* =========================================================
+           CLICK RAIN
+        ========================================================= */
+
+        .click-sweet {
+
+            position:
+                fixed;
+
+            z-index:
+                9990;
+
+            pointer-events:
+                none;
+
+            font-size:
+                23px;
+
+            animation:
+                clickRain
+                1.7s
+                cubic-bezier(.2,.7,.2,1)
+                forwards;
+        }
+
+        @keyframes clickRain {
+
+            0% {
+
+                opacity:
+                    1;
+
+                transform:
+                    translate(
+                        var(--x),
+                        -20px
+                    )
+                    rotate(0deg)
+                    scale(.65);
+            }
+
+            100% {
+
+                opacity:
+                    0;
+
+                transform:
+                    translate(
+                        calc(
+                            var(--x) +
+                            var(--drift)
+                        ),
+                        260px
+                    )
+                    rotate(var(--rotate))
+                    scale(1.15);
+            }
+
+        }
+
+
+        /* =========================================================
+           CURSOR
+        ========================================================= */
+
+        .cursor-glow {
+
+            position:
+                fixed;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                160px;
+
+            height:
+                160px;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 70%
+                );
+
+            transform:
+                translate(-50%,-50%);
+
+            pointer-events:
+                none;
+
+            z-index:
+                9998;
+
+            mix-blend-mode:
+                screen;
+
+            filter:
+                blur(5px);
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
 
         .reveal {
-            opacity: 0;
-            transform: translateY(70px);
+
+            opacity:
+                0;
+
+            transform:
+                translateY(70px)
+                scale(.97);
+
             transition:
-                opacity 1s ease,
-                transform 1s ease;
+                opacity .9s ease,
+                transform 1s
+                cubic-bezier(.2,.7,.2,1);
         }
 
         .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0)
+                scale(1);
         }
 
 
-        /* =========================
-           SCROLL TOP BUTTON
-        ========================= */
+        /* =========================================================
+           TOP BUTTON
+        ========================================================= */
 
         #topButton {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            z-index: 1500;
 
-            width: 52px;
-            height: 52px;
+            position:
+                fixed;
 
-            border: 1px solid white;
-            border-radius: 50%;
+            right:
+                22px;
 
-            background: #ffffffaa;
-            backdrop-filter: blur(15px);
+            bottom:
+                95px;
 
-            color: #a66aa4;
-            font-size: 22px;
+            z-index:
+                5000;
 
-            cursor: pointer;
+            width:
+                50px;
 
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
+            height:
+                50px;
 
-            transition: 0.3s;
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                50%;
+
+            background:
+                var(--glass);
+
+            backdrop-filter:
+                blur(18px);
+
+            color:
+                var(--accent-1);
+
+            cursor:
+                pointer;
+
+            font-size:
+                22px;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                .3s;
         }
 
         #topButton.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateY(0);
         }
 
         #topButton:hover {
-            transform: translateY(-7px);
-            background: white;
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 10px 30px
+                var(--accent-soft);
         }
 
 
-        /* =========================
+        /* =========================================================
            RESPONSIVE
-        ========================= */
+        ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 920px) {
 
             .gallery {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
             }
 
             .nav-links {
-                gap: 14px;
+
+                gap:
+                    12px;
             }
 
             .nav-links a {
-                font-size: 12px;
+
+                font-size:
+                    12px;
+            }
+
+            .floating-info {
+
+                display:
+                    none;
+            }
+
+            .hero-candy.one {
+
+                left:
+                    5%;
+            }
+
+            .hero-candy.two {
+
+                right:
+                    5%;
+            }
+
+            .hero-candy.three {
+
+                left:
+                    8%;
+            }
+
+            .hero-candy.four {
+
+                right:
+                    8%;
             }
 
         }
 
-        @media (max-width: 620px) {
 
-            nav {
-                padding: 12px 18px;
+        @media (max-width: 650px) {
+
+            .topbar {
+
+                padding:
+                    11px 16px;
             }
 
             .logo {
-                font-size: 19px;
+
+                font-size:
+                    18px;
             }
 
             .nav-links {
-                display: none;
+
+                display:
+                    none;
             }
 
-            .gallery {
-                grid-template-columns: 1fr;
-            }
+            .theme-switcher {
 
-            section {
-                padding: 80px 5%;
+                top:
+                    82px;
+
+                right:
+                    12px;
             }
 
             .hero {
-                padding-left: 5%;
-                padding-right: 5%;
+
+                padding:
+                    140px 5% 175px;
             }
 
-            .hero-description {
-                font-size: 15px;
+            .hero-stage {
+
+                width:
+                    600px;
+
+                height:
+                    600px;
+            }
+
+            .orbit.one {
+
+                width:
+                    400px;
+
+                height:
+                    145px;
+            }
+
+            .orbit.two {
+
+                width:
+                    430px;
+
+                height:
+                    160px;
+            }
+
+            .hero-portal {
+
+                width:
+                    450px;
+            }
+
+            .hero-candy {
+
+                font-size:
+                    27px;
+            }
+
+            .hero-candy.three,
+            .hero-candy.four {
+
+                bottom:
+                    26%;
+            }
+
+            .hero-shelf {
+
+                bottom:
+                    57px;
+
+                height:
+                    72px;
+            }
+
+            .hero-shelf-items {
+
+                font-size:
+                    29px;
+
+                gap:
+                    10px;
+
+                top:
+                    -28px;
+            }
+
+            .gallery {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            section {
+
+                padding:
+                    80px 5%;
             }
 
             .timeline-item {
-                padding-left: 70px;
+
+                padding-left:
+                    72px;
             }
 
             .timeline::before {
-                left: 23px;
+
+                left:
+                    24px;
             }
 
             .timeline-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 21px;
+
+                width:
+                    50px;
+
+                height:
+                    50px;
+
             }
 
-            .timeline-box {
-                padding: 22px;
+            .bottom-dessert-pile {
+
+                bottom:
+                    -10px;
             }
 
-            .timeline-box h3 {
-                font-size: 19px;
+            .pile-item {
+
+                font-size:
+                    38px;
+            }
+
+            .quote-box {
+
+                padding:
+                    60px 20px;
             }
 
         }
+
 
         @media (prefers-reduced-motion: reduce) {
 
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                transition-duration:
+                    .01ms !important;
+
+                scroll-behavior:
+                    auto !important;
             }
 
         }
@@ -1066,70 +4039,127 @@
 <body>
 
 
-    <!-- =========================
-         LOADING SCREEN
-    ========================= -->
-
-    <div id="loader">
-
-        <div class="loader-dessert">
-            🍰
-        </div>
-
-        <div class="loader-title">
-            Sweet Fantasy
-        </div>
-
-        <div class="loader-subtitle">
-            ENTERING THE MAGICAL DESSERT WORLD...
-        </div>
-
-        <div class="loader-track">
-            <div class="loader-progress"></div>
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         MAGIC BACKGROUND
-    ========================= -->
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================= -->
 
     <div class="magic-background">
 
-        <div class="magic-orb orb-one"></div>
-        <div class="magic-orb orb-two"></div>
-        <div class="magic-orb orb-three"></div>
+        <div class="magic-orb orb-1"></div>
+
+        <div class="magic-orb orb-2"></div>
+
+        <div class="magic-orb orb-3"></div>
 
     </div>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+    <!-- =========================================================
+         LOADER
+    ========================================================= -->
 
-    <nav>
+    <div id="loader">
 
-        <div class="logo">
-            🍰 Sweet Fantasy
+        <div class="loader-core">
+
+            <div class="loader-cake">
+                🍰
+            </div>
+
+            <div class="loader-title">
+                Sweet Fantasy
+            </div>
+
+            <div class="loader-subtitle">
+                OPENING THE STORY...
+            </div>
+
+            <div class="loader-bar">
+
+                <div class="loader-progress"></div>
+
+            </div>
+
+        </div>
+
+        <div
+            class="loader-burst"
+            id="loaderBurst"
+        ></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         DRIZZLE
+    ========================================================= -->
+
+    <div id="drizzleCurtain">
+
+        <div class="drizzle-layer"></div>
+
+        <div class="drizzle-wave"></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CURSOR GLOW
+    ========================================================= -->
+
+    <div
+        class="cursor-glow"
+        id="cursorGlow"
+    ></div>
+
+
+    <!-- =========================================================
+         BALLOON LAYER
+    ========================================================= -->
+
+    <div
+        class="balloon-layer"
+        id="balloonLayer"
+    ></div>
+
+
+    <!-- =========================================================
+         NAV
+    ========================================================= -->
+
+    <nav class="topbar">
+
+        <div
+            class="logo"
+            id="logoText"
+        >
+            🍰 Sweet ORV
         </div>
 
         <ul class="nav-links">
 
             <li>
-                <a href="#home">หน้าแรก</a>
+                <a href="#home">
+                    หน้าแรก
+                </a>
             </li>
 
             <li>
-                <a href="#gallery">แกลเลอรี</a>
+                <a href="#gallery">
+                    แกลเลอรี
+                </a>
             </li>
 
             <li>
-                <a href="#story">เรื่องราว</a>
+                <a href="#story">
+                    Story
+                </a>
             </li>
 
             <li>
-                <a href="#quote">แรงบันดาลใจ</a>
+                <a href="#quote">
+                    The Story
+                </a>
             </li>
 
         </ul>
@@ -1137,73 +4167,254 @@
     </nav>
 
 
-    <!-- =========================
+    <!-- =========================================================
+         THEME SWITCH
+    ========================================================= -->
+
+    <div class="theme-switcher">
+
+        <button
+            class="theme-button active"
+            data-theme="normal"
+        >
+
+            🍭
+
+            <span class="theme-tooltip">
+                Sweet Candy
+            </span>
+
+        </button>
+
+
+        <button
+            class="theme-button"
+            data-theme="chocolate"
+        >
+
+            🍫
+
+            <span class="theme-tooltip">
+                Chocolate Dream
+            </span>
+
+        </button>
+
+
+        <button
+            class="theme-button"
+            data-theme="fruit"
+        >
+
+            🍓
+
+            <span class="theme-tooltip">
+                Fruit Wonderland
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
          HERO
-    ========================= -->
+    ========================================================= -->
 
-    <header class="hero" id="home">
+    <header
+        class="hero"
+        id="home"
+    >
 
-        <div class="hero-content">
 
-            <div class="hero-label">
-                ✦ WELCOME TO THE SWEETEST WORLD ✦
+        <!-- Big background portal -->
+
+        <div class="hero-stage">
+
+            <div class="orbit one"></div>
+
+            <div class="orbit two"></div>
+
+        </div>
+
+
+        <div class="hero-portal"></div>
+
+
+        <!-- Floating candies -->
+
+        <div class="hero-candy one">
+            🍭
+        </div>
+
+        <div class="hero-candy two">
+            🧁
+        </div>
+
+        <div class="hero-candy three">
+            🍓
+        </div>
+
+        <div class="hero-candy four">
+            ✨
+        </div>
+
+
+        <!-- Floating glass information -->
+
+        <div class="floating-info left">
+
+            <strong>
+                01
+            </strong>
+
+            THE READER
+
+            <br>
+
+            Kim Dokja
+
+        </div>
+
+
+        <div class="floating-info right">
+
+            <strong>
+                ORV
+            </strong>
+
+            THE STORY
+
+            <br>
+
+            Never Ends
+
+        </div>
+
+
+        <!-- Main content -->
+
+        <div
+            class="hero-content"
+            id="heroContent"
+        >
+
+            <div class="eyebrow">
+                ✦ WELCOME TO THE STORY ✦
             </div>
 
-            <h1>
-                Sweet Fantasy
+
+            <div class="chapter-badge">
+                CHAPTER 01 · THE READER
+            </div>
+
+
+            <h1 class="hero-title">
+                Kim Dokja
             </h1>
 
-            <h2>
-                โลกแห่งขนมหวานและจินตนาการ
-            </h2>
+
+            <div class="hero-subtitle">
+                The Reader in a Sweet Fantasy
+            </div>
+
 
             <p class="hero-description">
 
-                ยินดีต้อนรับเข้าสู่โลกแห่งขนมหวาน
-                ที่เต็มไปด้วยสีสัน ความน่ารัก
-                และเรื่องราวแสนมหัศจรรย์
+                ชายหนุ่มธรรมดาคนหนึ่ง
+                ที่อ่านนิยายเรื่องหนึ่งจนถึงตอนจบ
 
-                ทุกชิ้นขนมเปรียบเสมือนความทรงจำ
-                และทุกความหวานคือแรงบันดาลใจเล็ก ๆ
-                ในชีวิตประจำวัน
+                <br>
+
+                แต่เมื่อโลกในนิยายกลายเป็นความจริง
+                ความรู้ของ "ผู้อ่าน"
+                กลับกลายเป็นกุญแจสำคัญ
+                ในการเดินทางต่อไปของเรื่องราว
+
+                <br><br>
+
+                จากสถานการณ์ ดวงดาว
+                และโลกของ Omniscient Reader's Viewpoint
+
+                <br>
+
+                สู่โลกแฟนตาซีที่ถูกแต่งแต้ม
+                ด้วยขนมหวานและความฝัน...
 
             </p>
 
+
             <div class="hero-buttons">
 
-                <a href="#gallery" class="main-button">
-                    ✦ เปิดประตูสู่แกลเลอรี ✦
+                <a
+                    href="#gallery"
+                    class="hero-btn primary"
+                >
+                    ✦ เปิดประตูสู่แกลเลอรี
                 </a>
 
-                <a href="#story" class="secondary-button">
-                    🍭 สำรวจเรื่องราว
+                <a
+                    href="#story"
+                    class="hero-btn secondary"
+                >
+                    🍰 สำรวจเรื่องราว
                 </a>
 
             </div>
 
         </div>
 
+
+        <!-- Glass dessert shelf -->
+
+        <div class="hero-shelf">
+
+            <div
+                class="hero-shelf-items"
+                id="heroShelfItems"
+            >
+
+                <span>🍓</span>
+                <span>🍰</span>
+                <span>🍭</span>
+                <span>✨</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Scroll -->
+
+        <div class="scroll-hint">
+
+            SCROLL TO ENTER
+
+            <span></span>
+
+        </div>
+
     </header>
 
 
-    <!-- =========================
+    <!-- =========================================================
          GALLERY
-    ========================= -->
+    ========================================================= -->
 
     <section id="gallery">
 
         <div class="section-heading reveal">
 
-            <span>
-                ✧ SWEET COLLECTION ✧
-            </span>
+            <div class="section-kicker">
+                ✧ SWEET STORY COLLECTION ✧
+            </div>
 
-            <h2>
-                My Dessert Gallery
+            <h2 class="section-title">
+                My Gallery
             </h2>
 
-            <p>
-                รวมเรื่องราวจากโลกแห่งขนมหวาน
+            <p class="section-description">
+                เรื่องราวจากโลกของ Omniscient Reader's Viewpoint
             </p>
 
         </div>
@@ -1212,38 +4423,58 @@
         <div class="gallery">
 
 
-            <article class="dessert-card reveal">
+            <!-- CARD 1 -->
 
-                <div class="dessert-image">
+            <article
+                class="story-card reveal"
+                data-card="dokja"
+            >
 
-                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+                <div class="card-light"></div>
+
+                <div class="image-frame">
 
                     <img
-                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
-                        alt="Strawberry Cake"
+                        class="story-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcTYQ0JK1E2Kco34ND9uMKlLjxTmya-QATPvPHj8kEfMTQ&s=10"
+                        alt="Kim Dokja"
                     >
 
                 </div>
 
+
                 <div class="card-content">
 
-                    <span class="tag">
-                        THE SWEET BEGINNING
+                    <span class="card-tag">
+                        THE READER
                     </span>
 
-                    <h3>
-                        Strawberry Dream
+                    <h3 class="card-title">
+                        Kim Dokja
                     </h3>
 
-                    <p>
-                        ความฝันสีชมพูที่เต็มไปด้วยกลิ่นหอม
-                        ของสตรอว์เบอร์รี
-                        และความหวานที่ทำให้ทุกวันสดใส
+                    <p class="card-text">
+
+                        ผู้อ่านเพียงคนเดียว
+                        ที่อ่าน Three Ways to Survive
+                        in a Ruined World จนถึงตอนจบ
+
+                        และกลายเป็นหนึ่งในบุคคลสำคัญ
+                        ของเรื่องราวที่เขาเคยอ่าน
+
                     </p>
 
-                    <div class="card-bottom">
-                        <span>🍓 Sweet Memory</span>
-                        <span>✧ 01</span>
+
+                    <div class="card-meta">
+
+                        <span>
+                            🍰 Sweet Reader
+                        </span>
+
+                        <span>
+                            ✧ 01
+                        </span>
+
                     </div>
 
                 </div>
@@ -1251,38 +4482,57 @@
             </article>
 
 
-            <article class="dessert-card reveal">
+            <!-- CARD 2 -->
 
-                <div class="dessert-image">
+            <article
+                class="story-card reveal"
+                data-card="kimcom"
+            >
 
-                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+                <div class="card-light"></div>
+
+                <div class="image-frame">
 
                     <img
-                        src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=85"
-                        alt="Colorful Candy"
+                        class="story-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcTB2LDrC0tpvYwP2F12CIMpZA9yhdQUQXBuYRsR-Y8glw&s=10"
+                        alt="KimCom"
                     >
 
                 </div>
 
+
                 <div class="card-content">
 
-                    <span class="tag">
-                        CANDY KINGDOM
+                    <span class="card-tag">
+                        KIM DOKJA COMPANY
                     </span>
 
-                    <h3>
-                        Candy Wonderland
+                    <h3 class="card-title">
+                        KimCom
                     </h3>
 
-                    <p>
-                        ดินแดนลูกกวาดหลากสีสัน
-                        ที่ทุกเส้นทางเต็มไปด้วยความสนุก
-                        และความมหัศจรรย์
+                    <p class="card-text">
+
+                        กลุ่มคนที่ร่วมเดินทาง
+                        ผ่านสถานการณ์ต่าง ๆ
+                        และค่อย ๆ กลายเป็น
+                        กลุ่มที่มีความผูกพัน
+                        และความสำคัญต่อกัน
+
                     </p>
 
-                    <div class="card-bottom">
-                        <span>🍭 Candy Adventure</span>
-                        <span>✧ 02</span>
+
+                    <div class="card-meta">
+
+                        <span>
+                            🍭 Sweet Company
+                        </span>
+
+                        <span>
+                            ✧ 02
+                        </span>
+
                     </div>
 
                 </div>
@@ -1290,68 +4540,87 @@
             </article>
 
 
-            <article class="dessert-card reveal">
+            <!-- CARD 3 -->
 
-                <div class="dessert-image">
+            <article
+                class="story-card reveal"
+                data-card="oldest"
+            >
 
-                    <!-- เปลี่ยนลิงก์รูปภาพภายหลัง -->
+                <div class="card-light"></div>
+
+                <div class="image-frame">
 
                     <img
-                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
-                        alt="Sweet Dessert"
+                        class="story-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=ANd9GcReAqWR1xE6xUrRBRTMEEN4vFM9bj4Sott5WGxiL6LjIw&s=10"
+                        alt="The Oldest Dream"
                     >
 
                 </div>
 
+
                 <div class="card-content">
 
-                    <span class="tag">
-                        THE SWEET DREAM
+                    <span class="card-tag">
+                        THE OLDEST DREAM
                     </span>
 
-                    <h3>
-                        Magical Dessert
+                    <h3 class="card-title">
+                        The Oldest Dream
                     </h3>
 
-                    <p>
-                        ขนมหวานแห่งความฝัน
-                        ที่ซ่อนเรื่องราวสุดพิเศษ
-                        ไว้ในทุกชั้นของจินตนาการ
+                    <p class="card-text">
+
+                        ความฝันที่เป็นหนึ่งในแก่นสำคัญ
+                        ของเรื่องราว
+
+                        แนวคิดที่เชื่อมโยง
+                        การมีอยู่ของโลก
+                        ผู้อ่าน และเรื่องราวเข้าด้วยกัน
+
                     </p>
 
-                    <div class="card-bottom">
-                        <span>🧁 Magic Creation</span>
-                        <span>✧ 03</span>
+
+                    <div class="card-meta">
+
+                        <span>
+                            🧁 Sweet Dream
+                        </span>
+
+                        <span>
+                            ✧ 03
+                        </span>
+
                     </div>
 
                 </div>
 
             </article>
-
 
         </div>
 
     </section>
 
 
-    <!-- =========================
-         STORY TIMELINE
-    ========================= -->
+    <!-- =========================================================
+         TIMELINE
+    ========================================================= -->
 
     <section id="story">
 
         <div class="section-heading reveal">
 
-            <span>
-                ✧ OUR SWEET JOURNEY ✧
-            </span>
+            <div class="section-kicker">
+                ✧ STORY TIMELINE ✧
+            </div>
 
-            <h2>
-                Dessert Story
+            <h2 class="section-title">
+                The Sweet Story
             </h2>
 
-            <p>
-                เส้นทางการเดินทางในโลกแห่งขนมหวาน
+            <p class="section-description">
+                เรื่องราวที่ค่อย ๆ เปิดเผยทีละบท
             </p>
 
         </div>
@@ -1368,14 +4637,21 @@
 
                 <div class="timeline-box">
 
-                    <h3>
-                        CHAPTER 01 — The First Sweetness
+                    <h3 class="timeline-title">
+                        CHAPTER 01 — The Reader
                     </h3>
 
-                    <p>
-                        จุดเริ่มต้นของความหลงใหลในขนมหวาน
-                        จากขนมชิ้นเล็ก ๆ
-                        สู่โลกแห่งจินตนาการ
+                    <p class="timeline-text">
+
+                        Kim Dokja เป็นคนธรรมดา
+                        ที่อ่านนิยายเรื่องหนึ่ง
+                        จนถึงบทสุดท้าย
+
+                        โดยไม่รู้เลยว่า
+                        ความรู้จากการอ่าน
+                        จะกลายเป็นกุญแจสำคัญ
+                        เมื่อโลกของนิยายเปลี่ยนเป็นความจริง
+
                     </p>
 
                 </div>
@@ -1391,14 +4667,21 @@
 
                 <div class="timeline-box">
 
-                    <h3>
-                        CHAPTER 02 — Candy Adventure
+                    <h3 class="timeline-title">
+                        CHAPTER 02 — The Scenario
                     </h3>
 
-                    <p>
-                        การผจญภัยในดินแดนลูกกวาด
-                        ที่เต็มไปด้วยสีสัน ความสนุก
-                        และสิ่งใหม่ ๆ ให้ค้นพบ
+                    <p class="timeline-text">
+
+                        โลกเริ่มดำเนินไปเหมือน
+                        เรื่องราวที่เขาเคยอ่าน
+
+                        สถานการณ์ต่าง ๆ
+                        เริ่มเกิดขึ้นจริง
+
+                        และบทบาทของ "ผู้อ่าน"
+                        ก็ไม่เหมือนเดิมอีกต่อไป
+
                     </p>
 
                 </div>
@@ -1409,19 +4692,25 @@
             <div class="timeline-item reveal">
 
                 <div class="timeline-icon">
-                    🧁
+                    🍫
                 </div>
 
                 <div class="timeline-box">
 
-                    <h3>
-                        CHAPTER 03 — The Sweet Creation
+                    <h3 class="timeline-title">
+                        CHAPTER 03 — Kim Dokja Company
                     </h3>
 
-                    <p>
-                        การสร้างสรรค์ขนมหวานในแบบของตัวเอง
-                        ผสมผสานความคิดสร้างสรรค์
-                        และจินตนาการเข้าด้วยกัน
+                    <p class="timeline-text">
+
+                        จากการเดินทางเพียงลำพัง
+                        ผู้คนที่ร่วมทางกัน
+                        ค่อย ๆ กลายเป็นกลุ่ม
+                        ที่มีความผูกพัน
+
+                        และกลายเป็น
+                        Kim Dokja Company
+
                     </p>
 
                 </div>
@@ -1437,47 +4726,64 @@
 
                 <div class="timeline-box">
 
-                    <h3>
-                        CHAPTER 04 — The Endless Dream
+                    <h3 class="timeline-title">
+                        CHAPTER 04 — The Oldest Dream
                     </h3>
 
-                    <p>
-                        เพราะความฝันไม่มีจุดสิ้นสุด
-                        ทุกจินตนาการสามารถกลายเป็น
-                        เรื่องราวที่แสนพิเศษได้
+                    <p class="timeline-text">
+
+                        เมื่อเรื่องราวเดินทาง
+                        ไปถึงคำถามเกี่ยวกับ
+                        ความฝัน การมีอยู่
+                        และผู้ที่กำลังเฝ้ามอง
+
+                        โลกทั้งใบ
+                        จึงกลายเป็นมากกว่า
+                        เพียงนิยายเรื่องหนึ่ง
+
                     </p>
 
                 </div>
 
             </div>
 
-
         </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================================
          QUOTE
-    ========================= -->
+    ========================================================= -->
 
     <section id="quote">
 
         <div class="quote-box reveal">
 
-            <div class="quote-icon">
+            <div class="quote-emoji">
                 🍰✨
             </div>
 
-            <h3>
-                Every Sweet Dream Needs a Creator
-            </h3>
+            <h2 class="quote-title">
+                Every Story Needs a Reader
+            </h2>
 
-            <p>
-                ทุกความฝันที่แสนหวาน
-                เริ่มต้นจากจินตนาการเล็ก ๆ
-                และสามารถกลายเป็นผลงานที่ยิ่งใหญ่
-                ได้ในอนาคต
+            <p class="quote-text">
+
+                ทุกเรื่องราวต้องมีใครสักคนอ่าน
+
+                <br><br>
+
+                และบางครั้ง
+                คนอ่านก็สามารถกลายเป็น
+                ส่วนหนึ่งของเรื่องราวนั้นได้
+
+                <br><br>
+
+                <strong>
+                    Every story needs a reader.
+                </strong>
+
             </p>
 
         </div>
@@ -1485,362 +4791,1682 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================================
          FOOTER
-    ========================= -->
+    ========================================================= -->
 
     <footer>
 
-        <h2>
-            Sweet Fantasy
+        <h2 class="footer-title">
+            Sweet ORV
         </h2>
 
-        <p>
-            A magical world filled with sweetness and imagination.
+        <p class="footer-text">
+            A little corner of the story.
         </p>
 
         <div class="footer-line">
-            ✦ Every dessert tells a story ✦
+            ✦ Every Story Needs a Reader ✦
         </div>
 
-        <p>
-            © 2026 Sweet Fantasy | Dessert Portfolio
+        <p class="footer-text">
+            © 2026 Kim Dokja Sweet Fantasy
         </p>
 
     </footer>
 
 
-    <!-- =========================
-         SCROLL TOP
-    ========================= -->
+    <!-- =========================================================
+         BOTTOM GIANT DESSERT PILE
+    ========================================================= -->
 
-    <button id="topButton" aria-label="กลับด้านบน">
+    <div
+        class="bottom-dessert-pile"
+        id="bottomPile"
+    ></div>
+
+
+    <!-- =========================================================
+         TOP BUTTON
+    ========================================================= -->
+
+    <button
+        id="topButton"
+        aria-label="กลับด้านบน"
+    >
         ↑
     </button>
 
 
-    <!-- =========================
+    <!-- =========================================================
          JAVASCRIPT
-    ========================= -->
+    ========================================================= -->
 
     <script>
 
 
-        /* =========================
-           LOADING
-        ========================= */
+        /* =========================================================
+           THEME DATA
+        ========================================================= */
 
-        window.addEventListener("load", () => {
+        const themes = {
 
-            setTimeout(() => {
+            normal: {
 
-                document
-                    .getElementById("loader")
-                    .classList
-                    .add("hide");
+                logo:
+                    "🍰 Sweet ORV",
 
-            }, 2700);
+                floating: [
+                    "🍭",
+                    "🍬",
+                    "🍰",
+                    "🧁",
+                    "🍩",
+                    "🍪",
+                    "🍓",
+                    "🍒",
+                    "✨",
+                    "💗"
+                ],
 
-        });
+                burst: [
+                    "🍰",
+                    "🍭",
+                    "🍓",
+                    "🧁",
+                    "🍬",
+                    "🍩",
+                    "🍪",
+                    "✨"
+                ],
+
+                click: [
+                    "🍭",
+                    "🍬",
+                    "🍓",
+                    "🧁",
+                    "🍰",
+                    "🍒",
+                    "✨"
+                ],
+
+                balloons: [
+                    {
+                        icon: "🍭",
+                        a: "#ff7ebc",
+                        b: "#c59cff"
+                    },
+
+                    {
+                        icon: "🍓",
+                        a: "#ff8fa5",
+                        b: "#ff6aa9"
+                    },
+
+                    {
+                        icon: "🍰",
+                        a: "#9fdfff",
+                        b: "#b79cff"
+                    },
+
+                    {
+                        icon: "🧁",
+                        a: "#ffb5dd",
+                        b: "#a98cff"
+                    }
+                ],
+
+                pile: [
+                    "🍰",
+                    "🧁",
+                    "🍩",
+                    "🍭",
+                    "🍓",
+                    "🍪",
+                    "🍬"
+                ],
+
+                icons: [
+                    "🍓",
+                    "🍭",
+                    "🧁",
+                    "✨"
+                ],
+
+                shelf: [
+                    "🍓",
+                    "🍰",
+                    "🍭",
+                    "✨"
+                ]
+
+            },
 
 
-        /* =========================
+            chocolate: {
+
+                logo:
+                    "🍫 Sweet ORV",
+
+                floating: [
+                    "🍫",
+                    "🍪",
+                    "🥜",
+                    "🍩",
+                    "🌰",
+                    "🍫",
+                    "🤎",
+                    "✨"
+                ],
+
+                burst: [
+                    "🍫",
+                    "🍪",
+                    "🥜",
+                    "🍩",
+                    "🌰",
+                    "🤎",
+                    "✨"
+                ],
+
+                click: [
+                    "🍫",
+                    "🍪",
+                    "🥜",
+                    "🌰",
+                    "🍩",
+                    "🤎",
+                    "✨"
+                ],
+
+                balloons: [
+                    {
+                        icon: "🍫",
+                        a: "#8b4c36",
+                        b: "#4b211c"
+                    },
+
+                    {
+                        icon: "🍪",
+                        a: "#bd815a",
+                        b: "#6b3827"
+                    },
+
+                    {
+                        icon: "🥜",
+                        a: "#e2b77f",
+                        b: "#ad7544"
+                    },
+
+                    {
+                        icon: "🤎",
+                        a: "#6f3027",
+                        b: "#3a1917"
+                    }
+                ],
+
+                pile: [
+                    "🍫",
+                    "🍪",
+                    "🥜",
+                    "🍩",
+                    "🌰",
+                    "🍫",
+                    "🤎"
+                ],
+
+                icons: [
+                    "🍫",
+                    "🥜",
+                    "🍪",
+                    "🤎"
+                ],
+
+                shelf: [
+                    "🍫",
+                    "🍪",
+                    "🥜",
+                    "🤎"
+                ]
+
+            },
+
+
+            fruit: {
+
+                logo:
+                    "🍓 Sweet ORV",
+
+                floating: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇",
+                    "🍒",
+                    "🥝",
+                    "🍍",
+                    "🍋",
+                    "✨"
+                ],
+
+                burst: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇",
+                    "🍒",
+                    "🥝",
+                    "🍍",
+                    "✨"
+                ],
+
+                click: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇",
+                    "🍒",
+                    "🥝",
+                    "🍍",
+                    "✨"
+                ],
+
+                balloons: [
+                    {
+                        icon: "🍓",
+                        a: "#ff7373",
+                        b: "#d93656"
+                    },
+
+                    {
+                        icon: "🍊",
+                        a: "#ffb347",
+                        b: "#ee7a28"
+                    },
+
+                    {
+                        icon: "🍉",
+                        a: "#79d98d",
+                        b: "#269a67"
+                    },
+
+                    {
+                        icon: "🍇",
+                        a: "#a87bdf",
+                        b: "#6942aa"
+                    }
+                ],
+
+                pile: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇",
+                    "🍒",
+                    "🥝",
+                    "🍍"
+                ],
+
+                icons: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇"
+                ],
+
+                shelf: [
+                    "🍓",
+                    "🍊",
+                    "🍉",
+                    "🍇"
+                ]
+
+            }
+
+        };
+
+
+        let currentTheme =
+            "normal";
+
+
+        /* =========================================================
+           RANDOM
+        ========================================================= */
+
+        function randomItem(array) {
+
+            return array[
+                Math.floor(
+                    Math.random() *
+                    array.length
+                )
+            ];
+
+        }
+
+
+        /* =========================================================
+           THEME SWITCH
+        ========================================================= */
+
+        const themeButtons =
+            document.querySelectorAll(
+                ".theme-button"
+            );
+
+
+        themeButtons.forEach(
+            (button) => {
+
+                button.addEventListener(
+                    "click",
+                    (event) => {
+
+                        event.stopPropagation();
+
+                        currentTheme =
+                            button.dataset.theme;
+
+
+                        document.body.classList.remove(
+                            "theme-chocolate",
+                            "theme-fruit"
+                        );
+
+
+                        if (
+                            currentTheme ===
+                            "chocolate"
+                        ) {
+
+                            document.body.classList.add(
+                                "theme-chocolate"
+                            );
+
+                        }
+
+
+                        if (
+                            currentTheme ===
+                            "fruit"
+                        ) {
+
+                            document.body.classList.add(
+                                "theme-fruit"
+                            );
+
+                        }
+
+
+                        themeButtons.forEach(
+                            (item) => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        button.classList.add(
+                            "active"
+                        );
+
+
+                        document.getElementById(
+                            "logoText"
+                        ).textContent =
+                            themes[
+                                currentTheme
+                            ].logo;
+
+
+                        updateTimelineIcons();
+
+                        updateBottomPile();
+
+                        updateHeroShelf();
+
+                        restartFloatingSweets();
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           TIMELINE ICONS
+        ========================================================= */
+
+        function updateTimelineIcons() {
+
+            const icons =
+                document.querySelectorAll(
+                    ".timeline-icon"
+                );
+
+            const data =
+                themes[
+                    currentTheme
+                ].icons;
+
+
+            icons.forEach(
+                (icon, index) => {
+
+                    icon.textContent =
+                        data[
+                            index %
+                            data.length
+                        ];
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           HERO SHELF
+        ========================================================= */
+
+        function updateHeroShelf() {
+
+            const shelf =
+                document.getElementById(
+                    "heroShelfItems"
+                );
+
+            shelf.innerHTML = "";
+
+
+            themes[
+                currentTheme
+            ].shelf.forEach(
+                (item) => {
+
+                    const span =
+                        document.createElement(
+                            "span"
+                        );
+
+                    span.textContent =
+                        item;
+
+                    shelf.appendChild(
+                        span
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           BOTTOM PILE
+        ========================================================= */
+
+        function updateBottomPile() {
+
+            const pile =
+                document.getElementById(
+                    "bottomPile"
+                );
+
+            pile.innerHTML = "";
+
+
+            themes[
+                currentTheme
+            ].pile.forEach(
+                (item) => {
+
+                    const span =
+                        document.createElement(
+                            "span"
+                        );
+
+                    span.className =
+                        "pile-item";
+
+                    span.textContent =
+                        item;
+
+                    pile.appendChild(
+                        span
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
            FLOATING SWEETS
-        ========================= */
+        ========================================================= */
 
-        const sweetIcons = [
-            "🍓",
-            "🍰",
-            "🍭",
-            "🧁",
-            "🍬",
-            "🍩",
-            "🍪",
-            "🍫",
-            "✨",
-            "💗",
-            "⭐",
-            "🍒"
-        ];
+        function createFloatingSweet() {
+
+            const sweet =
+                document.createElement(
+                    "span"
+                );
+
+            sweet.className =
+                "floating-sweet";
+
+            sweet.textContent =
+                randomItem(
+                    themes[
+                        currentTheme
+                    ].floating
+                );
+
+            sweet.style.left =
+                Math.random() * 100 +
+                "%";
+
+            sweet.style.fontSize =
+                (
+                    18 +
+                    Math.random() * 28
+                ) +
+                "px";
+
+            sweet.style.setProperty(
+                "--sway",
+                (
+                    Math.random() * 160 -
+                    80
+                ) +
+                "px"
+            );
+
+            sweet.style.animationDuration =
+                (
+                    12 +
+                    Math.random() * 18
+                ) +
+                "s";
+
+
+            document
+                .querySelector(
+                    ".magic-background"
+                )
+                .appendChild(
+                    sweet
+                );
+
+
+            setTimeout(
+                () => {
+
+                    sweet.remove();
+
+                },
+                32000
+            );
+
+        }
+
 
         function createFloatingSweets() {
 
-            for (let i = 0; i < 22; i++) {
+            for (
+                let i = 0;
+                i < 60;
+                i++
+            ) {
 
-                const sweet = document.createElement("span");
+                setTimeout(
+                    () => {
 
-                sweet.className = "floating-sweet";
+                        createFloatingSweet();
 
-                sweet.textContent =
-                    sweetIcons[
-                        Math.floor(
-                            Math.random() * sweetIcons.length
-                        )
-                    ];
-
-                sweet.style.left =
-                    Math.random() * 100 + "%";
-
-                sweet.style.fontSize =
-                    18 + Math.random() * 25 + "px";
-
-                sweet.style.animationDuration =
-                    15 + Math.random() * 22 + "s";
-
-                sweet.style.animationDelay =
-                    Math.random() * 18 + "s";
-
-                document
-                    .querySelector(".magic-background")
-                    .appendChild(sweet);
+                    },
+                    i * 200
+                );
 
             }
 
         }
 
-        createFloatingSweets();
+
+        function restartFloatingSweets() {
+
+            document
+                .querySelectorAll(
+                    ".floating-sweet"
+                )
+                .forEach(
+                    (item) =>
+                        item.remove()
+                );
 
 
-        /* =========================
-           RANDOM SPARKLES
-        ========================= */
+            createFloatingSweets();
+
+        }
+
+
+        /* =========================================================
+           SPARKLES
+        ========================================================= */
 
         function createSparkles() {
 
-            for (let i = 0; i < 55; i++) {
+            const layer =
+                document.querySelector(
+                    ".magic-background"
+                );
 
-                const sparkle = document.createElement("span");
 
-                sparkle.className = "sparkle";
+            for (
+                let i = 0;
+                i < 70;
+                i++
+            ) {
 
-                sparkle.style.left =
-                    Math.random() * 100 + "%";
+                const star =
+                    document.createElement(
+                        "span"
+                    );
 
-                sparkle.style.top =
-                    Math.random() * 100 + "%";
+                star.className =
+                    "sparkle";
 
-                sparkle.style.animationDuration =
-                    1 + Math.random() * 3 + "s";
+                star.style.left =
+                    Math.random() * 100 +
+                    "%";
 
-                sparkle.style.animationDelay =
-                    Math.random() * 4 + "s";
+                star.style.top =
+                    Math.random() * 100 +
+                    "%";
 
-                document
-                    .querySelector(".magic-background")
-                    .appendChild(sparkle);
+                star.style.animationDuration =
+                    (
+                        1 +
+                        Math.random() * 3
+                    ) +
+                    "s";
+
+                star.style.animationDelay =
+                    Math.random() * 4 +
+                    "s";
+
+                layer.appendChild(
+                    star
+                );
 
             }
 
         }
 
-        createSparkles();
 
+        /* =========================================================
+           BALLOON CREATOR
+        ========================================================= */
 
-        /* =========================
-           HERO MOUSE PARALLAX
-        ========================= */
+        function createBalloon() {
 
-        const heroContent =
-            document.querySelector(".hero-content");
-
-        document.addEventListener("mousemove", (event) => {
-
-            const mouseX =
-                event.clientX / window.innerWidth - 0.5;
-
-            const mouseY =
-                event.clientY / window.innerHeight - 0.5;
-
-            heroContent.style.transform =
-                `translate(${mouseX * 14}px, ${mouseY * 14}px)`;
-
-        });
-
-
-        /* =========================
-           3D CARD TILT
-        ========================= */
-
-        const cards =
-            document.querySelectorAll(".dessert-card");
-
-        cards.forEach((card) => {
-
-            card.addEventListener("mousemove", (event) => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
-
-                const rotateX =
-                    ((y / rect.height) - 0.5) * -14;
-
-                const rotateY =
-                    ((x / rect.width) - 0.5) * 14;
-
-                card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    scale3d(1.03, 1.03, 1.03)
-                    `;
-
-            });
-
-            card.addEventListener("mouseleave", () => {
-
-                card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(0deg)
-                    rotateY(0deg)
-                    scale3d(1, 1, 1)
-                    `;
-
-            });
-
-        });
-
-
-        /* =========================
-           CLICK PARTICLE EFFECT
-        ========================= */
-
-        document.addEventListener("click", (event) => {
-
-            const particles = [
-                "🍓",
-                "🍭",
-                "🧁",
-                "🍬",
-                "✨",
-                "💗",
-                "⭐",
-                "🍰"
-            ];
-
-            for (let i = 0; i < 12; i++) {
-
-                const particle =
-                    document.createElement("span");
-
-                particle.className =
-                    "click-particle";
-
-                particle.textContent =
-                    particles[
-                        Math.floor(
-                            Math.random() * particles.length
-                        )
-                    ];
-
-                particle.style.left =
-                    event.clientX + "px";
-
-                particle.style.top =
-                    event.clientY + "px";
-
-                particle.style.setProperty(
-                    "--move-x",
-                    Math.random() * 240 - 120 + "px"
+            const info =
+                randomItem(
+                    themes[
+                        currentTheme
+                    ].balloons
                 );
 
-                particle.style.setProperty(
-                    "--move-y",
-                    Math.random() * 240 - 120 + "px"
+
+            const balloon =
+                document.createElement(
+                    "div"
                 );
 
-                document.body.appendChild(particle);
+            balloon.className =
+                "balloon";
 
-                setTimeout(() => {
 
-                    particle.remove();
+            balloon.style.left =
+                (
+                    3 +
+                    Math.random() * 94
+                ) +
+                "%";
 
-                }, 1000);
+
+            balloon.style.setProperty(
+                "--duration",
+                (
+                    9 +
+                    Math.random() * 7
+                ) +
+                "s"
+            );
+
+
+            balloon.style.setProperty(
+                "--balloon-a",
+                info.a
+            );
+
+
+            balloon.style.setProperty(
+                "--balloon-b",
+                info.b
+            );
+
+
+            balloon.innerHTML = `
+
+                <div class="balloon-body">
+
+                    <span class="balloon-icon">
+                        ${info.icon}
+                    </span>
+
+                </div>
+
+                <div class="balloon-string"></div>
+
+            `;
+
+
+            balloon.addEventListener(
+                "click",
+                (event) => {
+
+                    event.stopPropagation();
+
+                    popBalloon(
+                        balloon,
+                        event
+                    );
+
+                }
+            );
+
+
+            document
+                .getElementById(
+                    "balloonLayer"
+                )
+                .appendChild(
+                    balloon
+                );
+
+
+            setTimeout(
+                () => {
+
+                    balloon.remove();
+
+                },
+                18000
+            );
+
+        }
+
+
+        /* =========================================================
+           BALLOON SPAWN
+        ========================================================= */
+
+        function spawnBalloons() {
+
+            const amount =
+                3 +
+                Math.floor(
+                    Math.random() * 2
+                );
+
+
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
+
+                setTimeout(
+                    () => {
+
+                        createBalloon();
+
+                    },
+                    i * 280
+                );
 
             }
 
-        });
+        }
 
 
-        /* =========================
+        /* =========================================================
+           BALLOON POP
+        ========================================================= */
+
+        function popBalloon(
+            balloon,
+            event
+        ) {
+
+            const rect =
+                balloon.getBoundingClientRect();
+
+
+            const centerX =
+                rect.left +
+                rect.width / 2;
+
+
+            const centerY =
+                rect.top +
+                rect.height / 2;
+
+
+            const ring =
+                document.createElement(
+                    "div"
+                );
+
+            ring.className =
+                "burst-ring";
+
+            ring.style.left =
+                centerX + "px";
+
+            ring.style.top =
+                centerY + "px";
+
+            document.body.appendChild(
+                ring
+            );
+
+
+            const candySet =
+                themes[
+                    currentTheme
+                ].burst;
+
+
+            for (
+                let i = 0;
+                i < 18;
+                i++
+            ) {
+
+                const particle =
+                    document.createElement(
+                        "span"
+                    );
+
+                particle.className =
+                    "balloon-burst";
+
+                particle.textContent =
+                    randomItem(
+                        candySet
+                    );
+
+                particle.style.left =
+                    centerX + "px";
+
+                particle.style.top =
+                    centerY + "px";
+
+                particle.style.setProperty(
+                    "--bx",
+                    (
+                        Math.random() *
+                        260 -
+                        130
+                    ) +
+                    "px"
+                );
+
+                particle.style.setProperty(
+                    "--by",
+                    (
+                        Math.random() *
+                        260 -
+                        130
+                    ) +
+                    "px"
+                );
+
+                particle.style.setProperty(
+                    "--br",
+                    (
+                        Math.random() *
+                        540 -
+                        270
+                    ) +
+                    "deg"
+                );
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        particle.remove();
+
+                    },
+                    1150
+                );
+
+            }
+
+
+            balloon.remove();
+
+
+            setTimeout(
+                () => {
+
+                    ring.remove();
+
+                },
+                750
+            );
+
+        }
+
+
+        /* =========================================================
+           CLICK CANDY RAIN
+        ========================================================= */
+
+        document.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target.closest(
+                        ".theme-switcher"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                for (
+                    let i = 0;
+                    i < 18;
+                    i++
+                ) {
+
+                    setTimeout(
+                        () => {
+
+                            const candy =
+                                document.createElement(
+                                    "span"
+                                );
+
+                            candy.className =
+                                "click-sweet";
+
+                            candy.textContent =
+                                randomItem(
+                                    themes[
+                                        currentTheme
+                                    ].click
+                                );
+
+                            candy.style.left =
+                                (
+                                    event.clientX +
+                                    Math.random() *
+                                    150 -
+                                    75
+                                ) +
+                                "px";
+
+                            candy.style.top =
+                                event.clientY +
+                                "px";
+
+                            candy.style.setProperty(
+                                "--x",
+                                (
+                                    Math.random() *
+                                    100 -
+                                    50
+                                ) +
+                                "px"
+                            );
+
+                            candy.style.setProperty(
+                                "--drift",
+                                (
+                                    Math.random() *
+                                    120 -
+                                    60
+                                ) +
+                                "px"
+                            );
+
+                            candy.style.setProperty(
+                                "--rotate",
+                                (
+                                    Math.random() *
+                                    360
+                                ) +
+                                "deg"
+                            );
+
+
+                            document.body.appendChild(
+                                candy
+                            );
+
+
+                            setTimeout(
+                                () => {
+
+                                    candy.remove();
+
+                                },
+                                1800
+                            );
+
+                        },
+                        i * 45
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           CURSOR GLOW
+        ========================================================= */
+
+        const cursorGlow =
+            document.getElementById(
+                "cursorGlow"
+            );
+
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                cursorGlow.style.left =
+                    event.clientX + "px";
+
+                cursorGlow.style.top =
+                    event.clientY + "px";
+
+            }
+        );
+
+
+        /* =========================================================
+           HERO PARALLAX
+        ========================================================= */
+
+        const heroContent =
+            document.getElementById(
+                "heroContent"
+            );
+
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const x =
+                    event.clientX /
+                    window.innerWidth -
+                    .5;
+
+                const y =
+                    event.clientY /
+                    window.innerHeight -
+                    .5;
+
+
+                heroContent.style.transform =
+                    `
+                    translate(
+                        ${x * 13}px,
+                        ${y * 13}px
+                    )
+                    `;
+
+            }
+        );
+
+
+        /* =========================================================
+           3D CARD TILT
+        ========================================================= */
+
+        document
+            .querySelectorAll(
+                ".story-card"
+            )
+            .forEach(
+                (card) => {
+
+                    const light =
+                        card.querySelector(
+                            ".card-light"
+                        );
+
+
+                    const image =
+                        card.querySelector(
+                            ".story-image"
+                        );
+
+
+                    card.addEventListener(
+                        "mousemove",
+                        (event) => {
+
+                            const rect =
+                                card.getBoundingClientRect();
+
+
+                            const x =
+                                event.clientX -
+                                rect.left;
+
+
+                            const y =
+                                event.clientY -
+                                rect.top;
+
+
+                            const px =
+                                x /
+                                rect.width;
+
+
+                            const py =
+                                y /
+                                rect.height;
+
+
+                            const rotateX =
+                                (
+                                    py -
+                                    .5
+                                ) *
+                                -16;
+
+
+                            const rotateY =
+                                (
+                                    px -
+                                    .5
+                                ) *
+                                16;
+
+
+                            card.style.transform =
+                                `
+                                perspective(1200px)
+                                rotateX(
+                                    ${rotateX}deg
+                                )
+                                rotateY(
+                                    ${rotateY}deg
+                                )
+                                translateY(-8px)
+                                scale(1.025)
+                                `;
+
+
+                            light.style.left =
+                                x + "px";
+
+
+                            light.style.top =
+                                y + "px";
+
+
+                            const moveX =
+                                (
+                                    px -
+                                    .5
+                                ) *
+                                8;
+
+
+                            const moveY =
+                                (
+                                    py -
+                                    .5
+                                ) *
+                                8;
+
+
+                            image.style.transform =
+                                `
+                                scale(1.09)
+                                translate(
+                                    ${moveX}px,
+                                    ${moveY}px
+                                )
+                                `;
+
+                        }
+                    );
+
+
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
+
+                            card.style.transform =
+                                `
+                                perspective(1200px)
+                                rotateX(0deg)
+                                rotateY(0deg)
+                                translateY(0)
+                                scale(1)
+                                `;
+
+
+                            image.style.transform =
+                                "scale(1)";
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
            SCROLL REVEAL
-        ========================= */
+        ========================================================= */
 
         const revealElements =
-            document.querySelectorAll(".reveal");
+            document.querySelectorAll(
+                ".reveal"
+            );
+
 
         const revealObserver =
             new IntersectionObserver(
                 (entries) => {
 
-                    entries.forEach((entry) => {
+                    entries.forEach(
+                        (entry) => {
 
-                        if (entry.isIntersecting) {
+                            if (
+                                entry.isIntersecting
+                            ) {
 
-                            entry.target.classList.add("show");
+                                entry.target.classList.add(
+                                    "show"
+                                );
 
-                            revealObserver.unobserve(
-                                entry.target
-                            );
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
 
                         }
-
-                    });
+                    );
 
                 },
                 {
-                    threshold: 0.15
+                    threshold:
+                        .12
                 }
             );
 
-        revealElements.forEach((element) => {
 
-            revealObserver.observe(element);
+        revealElements.forEach(
+            (element) => {
 
-        });
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
 
 
-        /* =========================
-           SCROLL TOP BUTTON
-        ========================= */
+        /* =========================================================
+           TOP BUTTON
+        ========================================================= */
 
         const topButton =
-            document.getElementById("topButton");
+            document.getElementById(
+                "topButton"
+            );
 
-        window.addEventListener("scroll", () => {
 
-            if (window.scrollY > 500) {
+        window.addEventListener(
+            "scroll",
+            () => {
 
-                topButton.classList.add("show");
+                if (
+                    window.scrollY >
+                    500
+                ) {
 
-            } else {
+                    topButton.classList.add(
+                        "show"
+                    );
 
-                topButton.classList.remove("show");
+                } else {
+
+                    topButton.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+        topButton.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo(
+                    {
+                        top:
+                            0,
+
+                        behavior:
+                            "smooth"
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           LOADER BURST
+        ========================================================= */
+
+        function createLoaderBurst() {
+
+            const burst =
+                document.getElementById(
+                    "loaderBurst"
+                );
+
+
+            const items =
+                themes[
+                    currentTheme
+                ].burst;
+
+
+            for (
+                let i = 0;
+                i < 24;
+                i++
+            ) {
+
+                const item =
+                    document.createElement(
+                        "span"
+                    );
+
+                item.className =
+                    "burst-item";
+
+                item.textContent =
+                    randomItem(
+                        items
+                    );
+
+
+                const angle =
+                    (
+                        Math.PI *
+                        2 *
+                        i
+                    ) /
+                    24;
+
+
+                const distance =
+                    170 +
+                    Math.random() *
+                    430;
+
+
+                const x =
+                    Math.cos(angle) *
+                    distance;
+
+
+                const y =
+                    Math.sin(angle) *
+                    distance;
+
+
+                item.style.setProperty(
+                    "--x",
+                    x + "px"
+                );
+
+                item.style.setProperty(
+                    "--y",
+                    y + "px"
+                );
+
+                item.style.setProperty(
+                    "--rotate",
+                    (
+                        Math.random() *
+                        540 -
+                        270
+                    ) +
+                    "deg"
+                );
+
+                item.style.setProperty(
+                    "--size",
+                    (
+                        Math.random() *
+                        18
+                    ) +
+                    "px"
+                );
+
+                item.style.setProperty(
+                    "--delay",
+                    (
+                        1.85 +
+                        Math.random() *
+                        .35
+                    ) +
+                    "s"
+                );
+
+
+                burst.appendChild(
+                    item
+                );
 
             }
 
-        });
+        }
 
-        topButton.addEventListener("click", () => {
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+        /* =========================================================
+           DRIZZLE CREATOR
+        ========================================================= */
 
-        });
+        function createDrizzle() {
+
+            const curtain =
+                document.getElementById(
+                    "drizzleCurtain"
+                );
+
+
+            for (
+                let i = 0;
+                i < 28;
+                i++
+            ) {
+
+                const drip =
+                    document.createElement(
+                        "div"
+                    );
+
+                drip.className =
+                    "drip";
+
+                drip.style.setProperty(
+                    "--left",
+                    Math.random() * 100 +
+                    "%"
+                );
+
+                drip.style.setProperty(
+                    "--width",
+                    (
+                        18 +
+                        Math.random() * 80
+                    ) +
+                    "px"
+                );
+
+                drip.style.setProperty(
+                    "--height",
+                    (
+                        80 +
+                        Math.random() * 280
+                    ) +
+                    "px"
+                );
+
+
+                curtain.appendChild(
+                    drip
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           START
+        ========================================================= */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                createLoaderBurst();
+
+                createDrizzle();
+
+                createSparkles();
+
+                updateBottomPile();
+
+                updateHeroShelf();
+
+
+                setTimeout(
+                    () => {
+
+                        const curtain =
+                            document.getElementById(
+                                "drizzleCurtain"
+                            );
+
+                        curtain.classList.add(
+                            "active"
+                        );
+
+
+                        setTimeout(
+                            () => {
+
+                                curtain.classList.remove(
+                                    "active"
+                                );
+
+                                curtain.classList.add(
+                                    "leave"
+                                );
+
+
+                                setTimeout(
+                                    () => {
+
+                                        document
+                                            .getElementById(
+                                                "loader"
+                                            )
+                                            .classList
+                                            .add(
+                                                "finished"
+                                            );
+
+
+                                        createFloatingSweets();
+
+                                        spawnBalloons();
+
+                                    },
+                                    950
+                                );
+
+                            },
+                            1300
+                        );
+
+                    },
+                    2450
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           CONTINUOUS BALLOONS
+        ========================================================= */
+
+        setInterval(
+            () => {
+
+                spawnBalloons();
+
+            },
+            5000
+        );
 
 
     </script>
 
-
 </body>
-
 </html>
+```
